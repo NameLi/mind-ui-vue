@@ -1,0 +1,10 @@
+@import url(./reset.css);
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+body, label, button, input {
+  cursor: url('https://note-file.ixook.com/FhFSLYNPtYt_Dr8-guiwrxULD7j7') 14 14, auto;
+}
