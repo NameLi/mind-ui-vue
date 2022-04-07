@@ -1,11 +1,11 @@
 <template>
-  <i 
-    class="iconfont" 
-    :class="!isImage ? 'icon-'+name: ''"
-    :style="styles" 
+  <i
+    class="m-icon"
+    :class="!isImage ? 'm-icon-' + name : ''"
+    :style="styles"
     @click="onClick"
   >
-    <img v-if="isImage" :src="name" :style="imageStyles" class="icon__image">
+    <img v-if="isImage" :src="name" :style="imageStyles" class="icon__image" />
   </i>
 </template>
 
@@ -15,55 +15,55 @@ export default {
   props: {
     name: {
       type: String,
-      required: true
+      required: true,
     },
 
     size: {
       type: [Number, String],
-      default: 36
+      default: 36,
     },
     color: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
 
   computed: {
     styles() {
-      let styles = []
-      const size = this.size / 75 + 'rem'
-      let font = 'font-size: ' + size
-      styles.push(font)
+      let styles = [];
+      const size = this.size / 75 + "rem";
+      let font = "font-size: " + size;
+      styles.push(font);
 
-      if(this.color) {
-        styles.push('color:' + this.color)
+      if (this.color) {
+        styles.push("color:" + this.color);
       }
 
-      return styles.join(";")
+      return styles.join(";");
     },
     isImage() {
-      return this.name.includes('/')
+      return this.name.includes("/");
     },
 
     imageStyles() {
-      let styles = []
-      const size = this.size / 75 + 'rem'
-      styles.push('width:' + size)
-      styles.push('height:' + size)
+      let styles = [];
+      const size = this.size / 75 + "rem";
+      styles.push("width:" + size);
+      styles.push("height:" + size);
 
-      return styles.join(";")
-    }
+      return styles.join(";");
+    },
   },
   methods: {
     onClick(e) {
-      this.$emit('click', e)
-    }
+      this.$emit("click", e);
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
-  .iconfont {
-    display: inline-block;
-  }
+.m-icon {
+  display: inline-block;
+}
 </style>
