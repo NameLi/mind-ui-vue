@@ -1,15 +1,15 @@
 <template>
   <page title="开关 Switch">
     <demo-card title="基础用法">
-      <m-switch v-model="checked" @change="onChange"></m-switch>
+      <m-switch v-model="checked" @change="onChange" />
     </demo-card>
 
     <demo-card title="禁用状态">
-      <m-switch v-model="switchDisabled" disabled></m-switch>
+      <m-switch v-model="switchDisabled" disabled />
     </demo-card>
 
     <demo-card title="加载状态">
-      <m-switch v-model="switchLoading" loading></m-switch>
+      <m-switch v-model="switchLoading" loading />
     </demo-card>
 
     <demo-card title="自定义颜色">
@@ -18,7 +18,7 @@
         active-color="#07c160"
         inactive-color="#ee0a24"
         @change="onChange"
-      ></m-switch>
+      />
     </demo-card>
 
     <demo-card title="异步控制">
@@ -26,7 +26,7 @@
         v-model="checkedAsync"
         :loading="loading"
         @change="onAsyncChange"
-      ></m-switch>
+      />
     </demo-card>
   </page>
 </template>
@@ -51,7 +51,7 @@ export default {
     },
 
     // 异步
-    onAsyncChange(value) {
+    onAsyncChange() {
       this.loading = true;
       setTimeout(() => {
         this.loading = false;

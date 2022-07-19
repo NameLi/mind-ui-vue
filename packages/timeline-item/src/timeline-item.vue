@@ -1,12 +1,12 @@
 <template>
-  <div class="m-timeline" :class="isLast ? 'is-last' : ''">
-    <div class="m-time">
-      <m-icon v-if="icon" :name="icon" :color="color"></m-icon>
+  <div class="m-timeline-item" :class="{ 'is-last': isLast }">
+    <div class="m-timeline-item__time">
+      <m-icon v-if="icon" :name="icon" :color="color" />
       <span v-else :style="color ? 'color:' + color : ''"> {{ text }}</span>
     </div>
 
-    <div class="m-timeline__content">
-      <slot></slot>
+    <div class="m-timeline-item__content">
+      <slot />
     </div>
   </div>
 </template>
@@ -37,40 +37,39 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.m-timeline {
+<style lang="scss">
+.m-timeline-item {
   display: flex;
-}
 
-.m-timeline .m-time {
-  position: relative;
-  width: 120px;
-  min-height: 80px;
-  display: flex;
-  justify-content: center;
-  color: #aaa;
-  font-size: 28px;
-}
-.m-timeline .m-time::after {
-  display: block;
-  position: absolute;
-  top: 44px;
-  width: 1px; /*no*/
-  bottom: 10px;
-  content: " ";
-  background: #ccc;
-  // transform: scaleX(0.5);
-}
+  .m-timeline-item__time {
+    position: relative;
+    width: 120px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    color: #aaa;
+    font-size: 28px;
+    &::after {
+      display: block;
+      position: absolute;
+      top: 44px;
+      width: 1px; /*no*/
+      bottom: 10px;
+      content: " ";
+      background: #ccc;
+    }
+  }
 
-.is-last .m-time::after {
-  display: none;
-}
+  .is-last .m-timeline-item__time::after {
+    display: none;
+  }
 
-.m-timeline__content {
-  flex: 1;
-  width: 0;
-  margin-top: 16px;
-  margin-bottom: 46px;
-  margin-right: 32px;
+  .m-timeline-item__content {
+    flex: 1;
+    width: 0;
+    margin-top: 16px;
+    margin-bottom: 46px;
+    margin-right: 32px;
+  }
 }
 </style>

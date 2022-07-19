@@ -1,9 +1,9 @@
 <template>
   <page title="操作表单 ActionSheet">
     <div class="button-group" style="margin-top: 160px">
-      <m-button @click="handleOpen1">基础用法</m-button>
-      <m-button @click="handleOpen2">自定义头部</m-button>
-      <m-button @click="handleOpen3">不显示取消按钮</m-button>
+      <m-button @click="visible1 = true">基础用法</m-button>
+      <m-button @click="visible2 = true">自定义头部</m-button>
+      <m-button @click="visible3 = true">不显示取消按钮</m-button>
     </div>
 
     <!-- 基础用法 -->
@@ -11,20 +11,20 @@
       :visible="visible1"
       :actions="actions1"
       show-cancel
-      @cancel="handleCancel1"
+      @cancel="visible1 = false"
       @click="handleClickItem1"
-    ></m-action-sheet>
+    />
 
     <!-- 自定义头部 -->
     <m-action-sheet
       :visible="visible2"
       :actions="actions2"
       show-cancel
-      @cancel="handleCancel2"
+      @cancel="visible2 = false"
       @click="handleClickItem2"
     >
-      <div slot="header" class="custom-header">
-        <div class="custom-title">确定吗？</div>
+      <div slot="header" class="demo-sheet__custom-header">
+        <div class="demo-sheet__custom-title">确定吗？</div>
         <span>删除后无法恢复哦</span>
       </div>
     </m-action-sheet>
@@ -33,15 +33,15 @@
     <m-action-sheet
       :visible="visible3"
       :actions="actions3"
-      @cancel="handleCancel3"
+      @cancel="visible3 = false"
       @click="handleClickItem3"
-    >
-    </m-action-sheet>
+    />
   </page>
 </template>
 
 <script>
 export default {
+  name: "demo-actionsheet",
   data() {
     return {
       visible1: false,
@@ -55,7 +55,6 @@ export default {
         },
         {
           name: "选项3",
-          icon: "love",
           color: "#EE5C42",
           // disabled: true,
         },
@@ -85,30 +84,6 @@ export default {
     };
   },
   methods: {
-    handleOpen1() {
-      this.visible1 = true;
-    },
-
-    handleCancel1() {
-      this.visible1 = false;
-    },
-
-    handleOpen2() {
-      this.visible2 = true;
-    },
-
-    handleCancel2() {
-      this.visible2 = false;
-    },
-
-    handleOpen3() {
-      this.visible3 = true;
-    },
-
-    handleCancel3() {
-      this.visible3 = false;
-    },
-
     handleClickItem1(index) {
       const idx = index + 1;
       this.$message("点击了选项" + idx);
@@ -136,10 +111,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.custom-header {
+<style lang="scss">
+.demo-sheet__custom-header {
   padding: 24px;
-  .custom-title {
+  .demo-sheet__custom-title {
     color: #444;
     font-size: 32px;
   }

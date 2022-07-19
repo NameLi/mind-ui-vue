@@ -1,5 +1,5 @@
 <template>
-  <page title="标签 Tag">
+  <page class="demo-page__tag" title="标签 Tag">
     <demo-card title="基础用法">
       <div class="tag-group">
         <m-tag type="primary">标签</m-tag>
@@ -50,10 +50,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.tag-group {
-  .m-tag {
-    margin-right: 20px;
+<style lang="scss">
+.demo-page__tag {
+  .tag-group {
+    .m-tag {
+      margin-right: 20px;
+    }
   }
 }
 </style>

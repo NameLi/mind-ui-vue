@@ -1,11 +1,11 @@
 <template>
-  <div class="demo-header-bar">
+  <div class="demo-header__bar">
     <div class="demo-header">
-      <div class="back" @click="$router.replace('/')">
-        <i class="back-icon"></i>
+      <div class="demo-header__back" @click="$router.replace('/')">
+        <i class="demo-header__back__icon"></i>
       </div>
-      <div class="title">{{ title }}</div>
-      <div class="back"></div>
+      <div class="demo-header__title">{{ title }}</div>
+      <div class="demo-header__back"></div>
     </div>
   </div>
 </template>
@@ -23,11 +23,11 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.demo-header-bar {
+<style lang="scss">
+.demo-header__bar {
   display: block;
   position: relative;
-  height: 56PX;
+  height: 56px;
 }
 
 .demo-header {
@@ -37,7 +37,7 @@ export default {
   width: 100%;
   left: 0;
   top: 0;
-  height: 56PX; /*no*/
+  height: 56px; /*no*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,15 +47,15 @@ export default {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 1PX; /*no*/
+    bottom: 1px; /*no*/
     width: 100%;
-    height: 1PX; /*no*/
+    height: 1px; /*no*/
     background-color: transparent;
     box-shadow: 0px 4px 8px rgba(174, 174, 174, 0.36);
   }
 }
 
-.demo-header .back {
+.demo-header .demo-header__back {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +66,7 @@ export default {
   box-sizing: content-box;
 }
 
-.demo-header .back .back-icon {
+.demo-header .demo-header__back .demo-header__back__icon {
   width: 32px;
   height: 32px;
   background-color: $color-text-primary;
@@ -78,7 +78,7 @@ export default {
   mask-size: cover;
 }
 
-.demo-header .title {
+.demo-header .demo-header__title {
   flex: 1;
   width: 0;
   display: flex;

@@ -1,6 +1,6 @@
 <template>
   <page title="索引选择器 Index">
-    <div class="m-index-demo">
+    <div class="demo-index">
       <m-index @change="onChange">
         <m-index-item name="当前">
           <div class="now-city">
@@ -42,6 +42,7 @@
 import { cities } from "../static/city";
 
 export default {
+  name: "demo-index",
   data() {
     return {
       cities: [],
@@ -119,19 +120,23 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.m-index-demo-item {
-  padding: 20px;
-  font-size: 28px;
-}
-
-.now-city,
-.hot-city {
-  margin: 10px 0;
-}
-/deep/ .m-tag {
-  margin: 12px 20px;
-  width: 200px;
-  box-sizing: border-box;
+<style lang="scss">
+.demo-index {
+  .m-index-demo-item {
+    padding: 20px;
+    font-size: 28px;
+  }
+  .now-city,
+  .hot-city {
+    margin: 10px 0;
+    .m-tag {
+      color: #333;
+    }
+  }
+  .m-tag {
+    margin: 12px 20px;
+    width: 200px;
+    box-sizing: border-box;
+  }
 }
 </style>

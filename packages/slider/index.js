@@ -1,7 +1,6 @@
 import MSlider from './src/slider';
 
-/* istanbul ignore next */
-MSlider.install = function(Vue) {
+MSlider.install = function (Vue) {
   Vue.component(MSlider.name, MSlider);
 };
 

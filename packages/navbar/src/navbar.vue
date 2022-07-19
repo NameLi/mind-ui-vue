@@ -1,14 +1,14 @@
 <template>
   <div
-    class="tabs__item"
-    :class="{ 'tab__item--is-active': isActive }"
-    ref="tabs__item"
+    class="tab-item"
+    :class="{ 'tab-item--is-active': isActive }"
+    ref="tabItem"
     @click="onClick"
   >
-    <div class="tabs__item__content">
+    <div class="tab-item__content">
       <div
-        ref="tabs__item__text"
-        class="tabs__item__text"
+        ref="tabItem__text"
+        class="tab-item__text"
         :style="activeColor ? 'color:' + activeColor : ''"
       >
         {{ title }}
@@ -70,10 +70,10 @@ export default {
       const baseLeft = this.$parent.baseLeft;
       const offsetLeft = ev
         ? ev.currentTarget.offsetLeft
-        : this.$refs.tabs__item.offsetLeft - baseLeft;
+        : this.$refs.tabItem.offsetLeft - baseLeft;
 
-      const itemWidth = this.$refs.tabs__item.offsetWidth;
-      const textWidth = this.$refs.tabs__item__text.offsetWidth;
+      const itemWidth = this.$refs.tabItem.offsetWidth;
+      const textWidth = this.$refs.tabItem__text.offsetWidth;
 
       this.$parent.updateScrollPositon(
         offsetLeft,
@@ -86,8 +86,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.tabs__item {
+<style lang="scss">
+.tab-item {
   position: relative;
   flex: 1;
   box-sizing: border-box;
@@ -99,23 +99,23 @@ export default {
   line-height: 88px;
   font-size: 28px;
   -webkit-tap-highlight-color: transparent;
-}
-.tabs__item__content {
-  white-space: nowrap;
-  margin: 0 20px;
-}
+  .tab-item__content {
+    white-space: nowrap;
+    margin: 0 20px;
+  }
 
-.tabs__item__text {
-  display: inline-block;
-}
+  .tab-item__text {
+    display: inline-block;
+  }
 
-.tabs__item--is-active {
-  font-weight: 500;
-  color: #323233;
-}
+  .tab-item--is-active {
+    font-weight: 500;
+    color: #323233;
+  }
 
-.badge-custom {
-  vertical-align: text-top;
-  margin-left: 6px;
+  .badge-custom {
+    vertical-align: text-top;
+    margin-left: 6px;
+  }
 }
 </style>

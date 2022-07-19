@@ -1,5 +1,5 @@
 <template>
-  <page title="进度条 Porgress">
+  <page class="demo-page__progress" title="进度条 Porgress">
     <demo-card title="基础用法">
       <m-progress percent="50" />
     </demo-card>
@@ -31,8 +31,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.progress {
-  margin: 5px 15px 20px;
+<style lang="scss">
+.demo-page__progress {
+  .progress {
+    margin: 5px 15px 20px;
+  }
 }
 </style>

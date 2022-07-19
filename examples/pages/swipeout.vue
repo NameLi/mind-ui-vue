@@ -1,6 +1,6 @@
 <template>
-  <page title="滑动菜单 Swipeout">
-    <demo-card title="custom button">
+  <page class="dmeo-page__swipeout" title="滑动菜单 Swipeout">
+    <demo-card title="左滑按钮">
       <m-swipeout
         v-for="item in list"
         :key="item.id"
@@ -8,7 +8,7 @@
         @click="handleClick(item.id)"
         @change="handleChange"
       >
-        <div class="demo-content swipeout-demo-item">
+        <div class="demo-content swipeout-demo-item m-hairline--bottom">
           <div class="name">{{ item.name }}</div>
           <div class="content">
             <div class="title">{{ item.title }}</div>
@@ -116,97 +116,85 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/deep/ .custom-content-class {
-  margin: 0 -32px;
-}
+<style lang="scss">
+.dmeo-page__swipeout {
+  .demo-card__content {
+    margin: 0 -32px;
+  }
+  .demo-content {
+    display: flex;
+    padding: 5px 20px;
+    height: 150px;
+    align-items: center;
+  }
 
-.swipeout-demo-item {
-  border-bottom: #eee solid 1px; /*no*/
-}
+  .demo-content .name {
+    width: 100px;
+    height: 100px;
+    color: #fff;
+    font-size: 36px;
+    line-height: 100px;
+    text-align: center;
+    background: #ccc;
+    border-radius: 6px;
+  }
 
-.cell-padding {
-  padding: 10px 0px !important;
-  font-size: 28px;
-}
+  .demo-content .content {
+    flex: 1;
+    width: 0;
+    padding-left: 20px;
+  }
 
-.custom-content-class {
-  margin: 0 -32px !important;
-}
+  .demo-content .content .title {
+    font-size: 32px;
+    height: 55px;
+    vertical-align: top;
+    color: #111;
+  }
 
-.demo-content {
-  display: flex;
-  padding: 5px 20px;
-  height: 150px;
-  align-items: center;
-}
+  .demo-content .content .desc {
+    font-size: 28px;
+    height: 45px;
+    line-height: 50px;
+    color: #888;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.demo-content .name {
-  width: 100px;
-  height: 100px;
-  color: #fff;
-  font-size: 36px;
-  line-height: 100px;
-  text-align: center;
-  background: #ccc;
-  border-radius: 6px;
-}
+  .demo-content .info {
+    width: 120px;
+    height: 100px;
+    text-align: right;
+  }
 
-.demo-content .content {
-  flex: 1;
-  width: 0;
-  padding-left: 20px;
-}
+  .demo-content .info .time {
+    color: #999;
+    font-size: 28px;
+    vertical-align: top;
+  }
 
-.demo-content .content .title {
-  font-size: 32px;
-  height: 55px;
-  vertical-align: top;
-  color: #111;
-}
+  .btn-group {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+  }
 
-.demo-content .content .desc {
-  font-size: 28px;
-  height: 45px;
-  line-height: 50px;
-  color: #888;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .btn-group .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+  }
 
-.demo-content .info {
-  width: 120px;
-  height: 100px;
-  text-align: right;
-}
+  .btn-group .up {
+    background: #ccc;
+  }
 
-.demo-content .info .time {
-  color: #999;
-  font-size: 28px;
-  vertical-align: top;
-}
-
-.btn-group {
-  display: flex;
-  align-items: stretch;
-  height: 100%;
-}
-
-.btn-group .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: #fff;
-  text-align: center;
-}
-
-.btn-group .up {
-  background: #ccc;
-}
-
-.btn-group .delete {
-  background: red;
+  .btn-group .delete {
+    background: red;
+  }
 }
 </style>

@@ -1,20 +1,20 @@
 <template>
   <div
     ref="slider"
-    class="custom-class slider"
-    :class="disabled ? 'slider--disabled' : ''"
+    class="m-slider"
+    :class="{ 'm-slider--disabled': disabled }"
     :style="inactiveColor ? 'background-color: ' + inactiveColor : ''"
     dom="slider"
     @click="onClick"
   >
-    <div class="slider__bar" dom="slider" :style="barStyle">
+    <div class="m-slider__bar" dom="slider" :style="barStyle">
       <div
-        class="slider__button-wrapper"
+        class="m-slider__button-wrapper"
         @mousedown="onButtonDown"
         @touchstart="onButtonDown"
       >
-        <slot v-if="useSlot"></slot>
-        <div v-else class="slider__button"></div>
+        <slot v-if="useSlot" />
+        <div v-else class="m-slider__button"></div>
       </div>
     </div>
   </div>
@@ -194,46 +194,45 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.slider {
+<style lang="scss">
+.m-slider {
   position: relative;
   border-radius: 999px;
   background-color: #e5e5e5;
-}
+  &:before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    content: "";
+    top: -8px;
+    bottom: -8px;
+  }
 
-.slider:before {
-  position: absolute;
-  right: 0;
-  left: 0;
-  content: "";
-  top: -8px;
-  bottom: -8px;
-}
+  .m-slider__bar {
+    position: relative;
+    border-radius: inherit;
+    transition: width 0.2s;
+    background-color: #1989fa;
+  }
 
-.slider__bar {
-  position: relative;
-  border-radius: inherit;
-  transition: width 0.2s;
-  background-color: #1989fa;
-}
+  .m-slider__button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+  }
 
-.slider__button {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  background-color: #fff;
-}
+  .m-slider__button-wrapper {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate3d(50%, -50%, 0);
+  }
 
-.slider__button-wrapper {
-  z-index: 1;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate3d(50%, -50%, 0);
-}
-
-.slider--disabled {
-  opacity: 0.7;
+  .m-slider--disabled {
+    opacity: 0.7;
+  }
 }
 </style>

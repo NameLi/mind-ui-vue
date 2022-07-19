@@ -1,16 +1,16 @@
 <template>
-  <div class="sticky-button__wrap custom-class">
+  <div class="m-sticky-button__wrap">
     <div
-      class="main-button"
-      :class="toggle ? 'is-active' : ''"
+      class="m-sticky-button"
+      :class="{ 'is-active': toggle }"
       :style="bgcolor ? 'background-color:' + bgcolor : ''"
       @click="setToggle"
     >
-      <m-icon :name="icon" :size="iconSize" :color="iconColor"></m-icon>
+      <m-icon :name="icon" :size="iconSize" :color="iconColor" />
     </div>
 
-    <div class="sub-button__container">
-      <slot></slot>
+    <div class="m-sticky-button__container">
+      <slot />
     </div>
   </div>
 </template>
@@ -145,43 +145,42 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.sticky-button__wrap {
+<style lang="scss">
+.m-sticky-button__wrap {
   position: relative;
   width: 100px;
   height: 100px;
   line-height: 100px;
-}
 
-.main-button {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  z-index: 2;
-  font-size: 60px;
-  background-color: $color-primary;
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .m-sticky-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 2;
+    font-size: 60px;
+    background-color: $color-primary;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.is-active {
+      transform: rotate(135deg);
+    }
+  }
 
-.main-button.is-active {
-  transform: rotate(135deg);
-}
-
-.sub-button__container {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  .m-sticky-button__container {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

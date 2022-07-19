@@ -1,5 +1,5 @@
 <template>
-  <page title="消息 Message">
+  <page class="demo-page__message" title="消息 Message">
     <demo-card title="基础用法">
       <m-button @click="handleDefault">默认提示</m-button>
     </demo-card>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "demo-toast",
+  name: "demo-message",
   data() {
     return {
       isOpen: false,
@@ -87,11 +87,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-/deep/ .m-button {
-  margin-bottom: 15px;
-  &.is-inline {
-    margin-right: 20px !important;
+<style lang="scss">
+.demo-page__message {
+  .m-button {
+    margin-bottom: 15px;
+    &.is-inline {
+      margin-right: 20px !important;
+    }
   }
 }
 </style>

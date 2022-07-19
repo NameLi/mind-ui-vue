@@ -1,8 +1,18 @@
 <template>
-  <page title="按钮 Button">
+  <page class="demo-page__button" title="按钮 Button">
     <demo-card title="形状">
       <m-button inline type="primary">Default</m-button>
       <m-button inline round type="primary">Round</m-button>
+    </demo-card>
+
+    <demo-card title="图标">
+      <div class="demo-btn__card">
+        <m-button inline type="primary" icon="m-icon-star-fill" />
+        <m-button inline type="primary" icon="m-icon-star-fill" loading />
+        <m-button inline type="primary" icon="m-icon-star-fill"
+          >Button</m-button
+        >
+      </div>
     </demo-card>
 
     <demo-card title="自定义颜色">
@@ -85,11 +95,16 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-/deep/ .m-button {
-  margin-bottom: 15px;
-  &.is-inline {
-    margin-right: 20px !important;
+<style lang="scss">
+.demo-page__button {
+  .demo-btn__card {
+    display: flex;
+  }
+  .m-button {
+    margin-bottom: 15px;
+    &.is-inline {
+      margin-right: 20px !important;
+    }
   }
 }
 </style>

@@ -10,7 +10,7 @@
             icon-color="#00CDA2"
             title="2020-03-25"
             value="浪淘沙令"
-          ></m-cell>
+          />
         </div>
 
         <div class="content" slot="content">
@@ -18,7 +18,7 @@
             v-for="(n, index) in 12"
             :key="index"
             title="梦里不知身是客"
-          ></m-cell>
+          />
         </div>
       </m-sticky-item>
 
@@ -29,7 +29,7 @@
             icon-color="#00CDA2"
             title="2020-03-26"
             value="虞美人"
-          ></m-cell>
+          />
         </div>
 
         <div class="content" slot="content">
@@ -37,7 +37,7 @@
             v-for="(n, index) in 12"
             :key="index"
             title="雕栏玉砌应犹在"
-          ></m-cell>
+          />
         </div>
       </m-sticky-item>
 
@@ -48,15 +48,11 @@
             icon-color="#00CDA2"
             title="2020-03-27"
             value="念奴娇"
-          ></m-cell>
+          />
         </div>
 
         <div class="content" slot="content">
-          <m-cell
-            v-for="(n, index) in 12"
-            :key="index"
-            title="人生如梦"
-          ></m-cell>
+          <m-cell v-for="(n, index) in 12" :key="index" title="人生如梦" />
         </div>
       </m-sticky-item>
 
@@ -67,7 +63,7 @@
             icon-color="#00CDA2"
             title="2020-03-28"
             value="渔家傲"
-          ></m-cell>
+          />
         </div>
 
         <div class="content" slot="content">
@@ -75,7 +71,7 @@
             v-for="(n, index) in 12"
             :key="index"
             title="将军白发征夫泪"
-          ></m-cell>
+          />
         </div>
       </m-sticky-item>
     </m-sticky>
@@ -98,7 +94,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sticky-title {
   height: 80px;
   line-height: 80px;

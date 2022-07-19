@@ -4,7 +4,7 @@
     :class="customClass"
     :style="plain ? 'color: ' + color : 'background-color: ' + color"
   >
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .m-tag {
   position: relative;
   display: inline-block;
@@ -69,118 +69,115 @@ export default {
   letter-spacing: 2px;
   text-align: center;
   color: #fff;
-}
 
-.m-tag--large {
-  height: 64px;
-  line-height: 64px;
-  padding: 0 24px;
-  font-size: 36px;
-  border-radius: 6px;
-}
-.m-tag--medium {
-  height: 56px;
-  line-height: 56px;
-  padding: 0 16px;
-  font-size: 28px;
-  border-radius: 6px;
-}
-.m-tag--small {
-  height: 42px;
-  line-height: 42px;
-  padding: 0 12px;
-  font-size: 20px;
-}
-.m-tag--mini {
-  height: 32px;
-  line-height: 32px;
-  padding: 0 8px;
-  font-size: 18px;
-}
+  &.m-tag--large {
+    height: 64px;
+    line-height: 64px;
+    padding: 0 24px;
+    font-size: 36px;
+    border-radius: 6px;
+  }
+  &.m-tag--medium,
+  &.m-tag--normal {
+    height: 56px;
+    line-height: 56px;
+    padding: 0 16px;
+    font-size: 28px;
+    border-radius: 6px;
+  }
+  &.m-tag--small {
+    height: 42px;
+    line-height: 42px;
+    padding: 0 12px;
+    font-size: 20px;
+  }
+  &.m-tag--mini {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px;
+    font-size: 18px;
+  }
 
-.none {
-  border-color: #fff;
-}
+  /* 类型 type */
+  &.m-tag--primary {
+    color: #fff;
+    background: $color-primary;
+  }
 
-/* 类型 type */
-.m-tag--primary {
-  color: #fff;
-  background: $color-primary;
-}
+  &.m-tag--success {
+    color: #fff;
+    background: $color-success;
+  }
 
-.m-tag--success {
-  color: #fff;
-  background: $color-success;
-}
+  &.m-tag--info {
+    color: #fff;
+    background: $color-info;
+  }
 
-.m-tag--info {
-  color: #fff;
-  background: $color-info;
-}
+  &.m-tag--warning {
+    color: #fff;
+    background: $color-warning;
+  }
 
-.m-tag--warning {
-  color: #fff;
-  background: $color-warning;
-}
+  &.m-tag--danger {
+    color: #fff;
+    background: $color-danger;
+  }
 
-.m-tag--danger {
-  color: #fff;
-  background: $color-danger;
-}
+  /* plain */
+  &.is-plain {
+    background: #fff;
+  }
 
-/* plain */
-.is-plain {
-  background: #fff;
-}
+  &.is-plain::after {
+    content: " ";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid; /*no*/
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.85;
+  }
 
-.is-plain::after {
-  content: " ";
-  display: block;
-  width: 200%;
-  height: 200%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 1px solid; /*no*/
-  transform: scale(0.5);
-  transform-origin: 0 0;
-  box-sizing: border-box;
-  border-radius: 8px;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.85;
-}
+  &.is-plain.is-round::after {
+    border-radius: 100px;
+  }
 
-.is-plain.is-round::after {
-  border-radius: 100px;
-}
+  &.m-tag--primary.is-plain {
+    color: $color-primary;
+  }
 
-.m-tag--primary.is-plain {
-  color: $color-primary;
-}
+  &.m-tag--success.is-plain {
+    color: $color-success;
+  }
 
-.m-tag--success.is-plain {
-  color: $color-success;
-}
+  &.m-tag--warning.is-plain {
+    color: $color-warning;
+  }
 
-.m-tag--warning.is-plain {
-  color: $color-warning;
-}
+  &.m-tag--info.is-plain {
+    color: $color-info;
+  }
 
-.m-tag--info.is-plain {
-  color: $color-info;
-}
+  &.m-tag--danger.is-plain {
+    color: $color-danger;
+  }
 
-.m-tag--danger.is-plain {
-  color: $color-danger;
-}
+  /* 自定义颜色 */
+  &.m-tag:not(.is-plain) {
+    color: #fff important;
+  }
 
-/* 自定义颜色 */
-.m-tag:not(.is-plain) {
-  color: #fff important;
-}
-
-.is-round {
-  border-radius: 100px;
+  &.is-round {
+    border-radius: 100px;
+  }
 }
 </style>

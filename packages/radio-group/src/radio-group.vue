@@ -1,6 +1,6 @@
 <template>
   <div class="m-radio-group">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

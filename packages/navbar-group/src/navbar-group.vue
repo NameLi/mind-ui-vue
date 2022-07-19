@@ -103,9 +103,8 @@ export default {
 
       this.tabWidth = this.$refs.tabs__wrap.offsetWidth; // 选项卡总宽度
 
-
       if (this.activeName) {
-        children.forEach((child, index) => {
+        children.forEach((child) => {
           if (child.name === this.activeName) {
             child.onClick();
           }
@@ -169,11 +168,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.tabs {
-  position: relative;
-}
-
+<style lang="scss">
 .tabs__wrap {
   justify-content: center;
   height: 88px;

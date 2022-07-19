@@ -2,7 +2,7 @@
   <div class="m-rate">
     <div
       class="m-rate__content"
-      :class="actived === index ? 'is-active' : ''"
+      :class="{ 'is-active': actived === index }"
       v-for="(item, index) in starNum"
       :key="index"
     >
@@ -13,18 +13,18 @@
           disabled ? disabledColor : index + 1 <= tValue ? color : voidColor
         "
         @click="handleClick(index + 1)"
-      ></m-icon>
+      />
 
       <m-icon
         v-if="allowHalf"
         :name="voldIcon"
         :size="size"
-        class="half-icon"
+        class="m-rate__half-icon"
         :color="
           disabled ? disabledColor : index + 0.5 <= tValue ? color : voidColor
         "
         @click="handleClick(index + 0.5)"
-      ></m-icon>
+      />
     </div>
 
     <div
@@ -185,7 +185,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .m-rate {
   display: inline-flex;
   align-items: center;
@@ -194,14 +194,14 @@ export default {
     display: flex;
     align-content: center;
     margin-right: 10px;
-    .half-icon {
+    .m-rate__half-icon {
       position: absolute;
       left: 0;
       width: 50%;
       overflow: hidden;
     }
     &.is-active {
-      animation: jump 0.4s ease-in-out;
+      animation: m-jump 0.4s ease-in-out;
     }
   }
   .m-score {
@@ -209,7 +209,7 @@ export default {
   }
 }
 
-@keyframes jump {
+@keyframes m-jump {
   0% {
     transform: scale(1);
   }

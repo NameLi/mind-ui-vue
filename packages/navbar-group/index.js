@@ -1,7 +1,6 @@
 import MNavbarGroup from './src/navbar-group';
 
-/* istanbul ignore next */
-MNavbarGroup.install = function(Vue) {
+MNavbarGroup.install = function (Vue) {
   Vue.component(MNavbarGroup.name, MNavbarGroup);
 };
 

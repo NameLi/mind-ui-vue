@@ -1,17 +1,13 @@
 <template>
-  <div class="sticky-button" :style="getStyles">
-    <m-icon
-      :name="icon"
-      :size="currentIconSize"
-      :color="currentIconColor"
-    ></m-icon>
+  <div class="m-sticky-button__item" :style="getStyles">
+    <m-icon :name="icon" :size="currentIconSize" :color="currentIconColor" />
   </div>
 </template>
 
 <script>
 import MIcon from "../../icon";
 export default {
-  name: 'm-sticky-button-item',
+  name: "m-sticky-button-item",
   components: {
     MIcon,
   },
@@ -69,8 +65,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.sticky-button {
+<style lang="scss">
+.m-sticky-button__item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,9 +82,8 @@ export default {
   z-index: 1;
   transform: translate(0, 0) rotate(0) scale(0.5);
   transition: transform 0.3s ease-in-out;
-}
-
-/deep/.m-icon {
-  vertical-align: middle !important;
+  .m-icon {
+    vertical-align: middle !important;
+  }
 }
 </style>

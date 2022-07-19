@@ -1,13 +1,13 @@
 <template>
-  <div class="m-swipeout custom-class">
+  <div class="m-swipeout">
     <div
       class="m-swipeout__content"
-      :style="getStyle" 
-       ref="swipeout"
+      :style="getStyle"
+      ref="swipeout"
       @mousedown="onButtonDown"
       @touchstart="onButtonDown"
     >
-      <slot></slot>
+      <slot />
     </div>
 
     <div
@@ -15,7 +15,7 @@
       :style="buttonStyles"
       ref="swipeout_button"
     >
-      <slot name="button"></slot>
+      <slot name="button" />
     </div>
   </div>
 </template>
@@ -42,7 +42,9 @@ export default {
   computed: {
     buttonStyles() {
       if (this.btnGroupWidth === 0) return "";
-      return `transform: translate3d(${this.btnGroupWidth + this.offset}px, 0, 0);`;
+      return `transform: translate3d(${
+        this.btnGroupWidth + this.offset
+      }px, 0, 0);`;
     },
   },
 
@@ -53,7 +55,6 @@ export default {
   },
 
   methods: {
-
     onButtonDown(ev) {
       ev.preventDefault();
       this.onTouchStart(ev);
@@ -72,10 +73,9 @@ export default {
         window.removeEventListener("touchend", this.onDragEnd);
         window.removeEventListener("contextmenu", this.onDragEnd);
 
-        this.handleTouchend(ev)
+        this.handleTouchend(ev);
       }
     },
-
 
     // 开启滑动菜单
     _openSwipe(sec = this.bounceTime) {
@@ -149,8 +149,8 @@ export default {
       this.isMoving = true;
       this.startOffset = this.offset;
       const touch = ev.touches ? ev.touches[0] : ev;
-      if(!touch.timeStamp) {
-        touch.timeStamp = new Date().getTime()
+      if (!touch.timeStamp) {
+        touch.timeStamp = new Date().getTime();
       }
       this.touchStart = touch; // 记录起始点击信息，模拟点击事件
       this.startX = touch.pageX;
@@ -210,8 +210,8 @@ export default {
       this.isMoving = false;
 
       const touch = ev.touches ? ev.touches[0] || ev.changedTouches[0] : ev;
-      if(!touch.timeStamp) {
-        touch.timeStamp = new Date().getTime()
+      if (!touch.timeStamp) {
+        touch.timeStamp = new Date().getTime();
       }
 
       const direction = this.startX > touch.pageX ? "left" : "right";
@@ -231,7 +231,6 @@ export default {
           this.$emit("click");
           this._closeSwipe(0);
         } else {
-
           this._closeSwipe();
         }
         return;
@@ -241,7 +240,7 @@ export default {
       const bounceTime = this.bounceTime; // 回弹动画默认时长
       let moveDistance = Math.abs(touch.pageX - this.startX); //  移动距离
       let bounceSec = (moveDistance / this.btnWidth) * this.bounceTime; // 回弹动画时间，单位秒
-      
+
       if (bounceSec > bounceTime / 2) bounceSec = bounceTime - bounceSec; // 时长过半则取反
       bounceSec = bounceSec.toFixed(2);
 
@@ -253,36 +252,36 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-swipeout {
   position: relative;
   width: 100%;
   box-sizing: border-box;
   font-size: 28px;
   overflow: hidden;
-}
 
-.m-swipeout__content {
-  white-space: nowrap;
-  overflow: hidden;
-}
+  .m-swipeout__content {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-.m-swipeout__button-group {
-  z-index: 1;
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  display: block;
-}
+  .m-swipeout__button-group {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: block;
+  }
 
-.m-swipeout__button-item {
-  height: 100%;
-  float: left;
-  white-space: nowrap;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .m-swipeout__button-item {
+    height: 100%;
+    float: left;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

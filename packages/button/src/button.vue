@@ -1,21 +1,23 @@
 <template>
   <button
+    class="m-button"
     :class="[
-      'm-button',
-      'm-button--' + type,
-      'm-button--' + size,
+      type ? 'm-button--' + type : '',
+      size ? 'm-button--' + size : '',
+      { 'm-hairline--surround': isPlain },
       { 'm-button--full': full },
       { 'is-round': round },
       { 'is-plain': plain },
       { 'is-loading': loading },
       { 'is-disabled': disabled },
-      { 'is-inline': inline }
+      { 'is-inline': inline },
     ]"
     :style="styles"
     @click="onClick"
   >
+    <i class="m-icon m-button__icon" :class="icon" v-if="icon && !loading"></i>
     <div v-if="loading" class="m-button__loading"></div>
-    <slot v-else></slot>
+    <span v-if="$slots.default"><slot /></span>
   </button>
 </template>
 
@@ -64,35 +66,40 @@ export default {
       type: String,
       default: "",
     },
+    icon: {
+      type: String,
+      default: "",
+    },
   },
 
   computed: {
+    isPlain() {
+      return this.plain || this.type === "default";
+    },
+
     styles() {
-      let styles = []
-      if(this.color) {
-        styles.push('color:' + this.color)
+      let styles = [];
+      if (this.color) {
+        styles.push("color:" + this.color);
       }
 
-      if(this.bgcolor) {
-        styles.push('background-color:' + this.bgcolor)
+      if (this.bgcolor) {
+        styles.push("background-color:" + this.bgcolor);
       }
 
-      return styles.join(";")
-    }
+      return styles.join(";");
+    },
   },
 
-  mounted() {
-    
-  },
   methods: {
     onClick(e) {
-      this.$emit('click', e)
-    }
-  }
+      this.$emit("click", e);
+    },
+  },
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .m-button {
   display: block;
   position: relative;
@@ -114,180 +121,170 @@ export default {
   user-select: none;
   outline: none;
   transition: opacity 0.16s, background-color 0.16s;
-}
+  &.m-hairline--surround::after {
+    z-index: 1;
+    border-radius: 6px;
+    border-color: currentColor;
+  }
+  &-icon {
+    display: inline-block;
+    font-size: 28px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+  }
 
-.m-button-icon {
-  display: inline-block;
-  font-size: 28px;
-  width: 24px;
-  height: 24px;
-}
+  &:not(.is-disabled):active {
+    opacity: 0.8;
+  }
 
-.m-button:active {
-  opacity: 0.8;
-}
+  &--full {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    &.m-hairline--surround::after {
+      border-radius: 0;
+    }
+  }
+  &--default {
+    background-color: transparent;
+    color: $color-text-primary;
+  }
+  &--default:active {
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+  &--default.m-hairline--surround::after {
+    border-color: $color-border;
+    pointer-events: none;
+  }
 
-.m-button:not(.is-disabled):active::before,
-.m-button:not(.is-loading):active::before {
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  opacity: 0.15;
-  content: " ";
-  background-color: currentColor;
-}
-.m-button.is-round:active::before {
-  border-radius: 100px;
-}
+  &--large {
+    height: 96px;
+    line-height: 96px;
+    font-size: 32px;
+  }
 
-.m-button.m-button--full {
-  margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
+  &--small {
+    height: 68px;
+    line-height: 68px;
+  }
+  &--primary {
+    color: #fff;
+    background-color: $color-primary;
+  }
+  &.is-round.m-hairline--surround::after {
+    border-radius: 200px;
+  }
 
-.m-button.m-button--large {
-  height: 96px;
-  line-height: 96px;
-  font-size: 32px;
-}
+  &--ghost {
+    background-color: transparent;
+    color: $color-text-primary;
+  }
 
-.m-button.m-button--small {
-  height: 68px;
-  line-height: 68px;
-}
+  &--success {
+    color: #fff;
+    background-color: $color-success;
+  }
 
-.m-button.m-button--primary {
-  color: #fff;
-  background-color: $color-primary;
-}
+  &--warning {
+    color: #fff;
+    background-color: $color-warning;
+  }
 
-.m-button.m-button--default {
-  background-color: transparent;
-  color: $color-text-primary;
-}
-.m-button.m-button--default:active {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-.m-button.m-button--default::after {
-  content: " ";
-  display: block;
-  width: 200%;
-  height: 200%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 1PX solid #dcdfe6; /*no*/
-  transform: scale(0.5);
-  transform-origin: 0 0;
-  box-sizing: border-box;
-  border-radius: 6px;
-  z-index: 1;
-  pointer-events: none;
-}
+  &--danger {
+    color: #fff;
+    background-color: $color-danger;
+  }
 
-.m-button.m-button--ghost {
-  background-color: transparent;
-  color: $color-text-primary;
-}
+  &--info {
+    color: #fff;
+    background-color: $color-info;
+  }
 
-.m-button.m-button--success {
-  color: #fff;
-  background-color: $color-success;
-}
+  /* plain */
+  &--primary.is-plain {
+    color: $color-primary;
+  }
 
-.m-button.m-button--warning {
-  color: #fff;
-  background-color: $color-warning;
-}
+  &--success.is-plain {
+    color: $color-success;
+  }
 
-.m-button.m-button--danger {
-  color: #fff;
-  background-color: $color-danger;
-}
+  &--warning.is-plain {
+    color: $color-warning;
+  }
 
-.m-button.m-button--info {
-  color: #fff;
-  background-color: $color-info;
-}
+  &--danger.is-plain {
+    color: $color-danger;
+  }
 
-/* plain */
-.m-button--primary.is-plain {
-  color: $color-primary;
-  background-color: #fff;
-}
+  &--info.is-plain {
+    color: $color-info;
+  }
+  &[class*="m-button-"].is-plain {
+    background-color: #fff;
+  }
 
-.m-button--success.is-plain {
-  color: $color-success;
-  background-color: #fff;
-}
+  &.m-hairline--surround.is-plain::after {
+    border-color: currentColor;
+    pointer-events: none;
+  }
 
-.m-button--warning.is-plain {
-  color: $color-warning;
-  background-color: #fff;
-}
+  &.is-round {
+    border-radius: 200px;
+    &:active::after {
+      border-radius: 200px;
+    }
+    &.is-plain::after {
+      border-radius: 200px;
+    }
+  }
 
-.m-button--danger.is-plain {
-  color: $color-danger;
-  background-color: #fff;
-}
+  &.is-loading {
+    opacity: 0.9;
+    pointer-events: none;
+  }
 
-.m-button--info.is-plain {
-  color: $color-info;
-  background-color: #fff;
-}
+  .m-button__loading {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    background-position: 0 0;
+    border-radius: 50%;
+    border: 2px solid currentColor; /*no*/
+    border-left-color: transparent;
+    animation: btn-spinner 0.8s linear;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+  }
 
-.m-button.is-plain::after {
-  content: " ";
-  display: block;
-  width: 200%;
-  height: 200%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 1PX solid currentColor; /*no*/
-  transform: scale(0.5);
-  transform-origin: 0 0;
-  box-sizing: border-box;
-  border-radius: 6px;
-  z-index: 1;
-  pointer-events: none;
-}
+  &.is-disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+  &.is-inline {
+    display: inline-block;
+    width: auto !important;
+  }
 
-.m-button.is-round {
-  border-radius: 100px;
-}
+  [class*="m-icon-"] + span,
+  [class*="m-button__loading"] + span {
+    margin-left: 12px;
+  }
 
-.m-button.is-round.is-plain::after {
-  border-radius: 100px;
-}
-
-.m-button.is-loading {
-  opacity: 0.9;
-}
-
-.m-button__loading {
-  display: inline-block;
-  vertical-align: middle;
-  width: 12PX;
-  height: 12PX;
-  background-position: 0 0;
-  border-radius: 50%;
-  border: 2PX solid currentColor;
-  border-left-color: transparent;
-  animation: btn-spinner 0.8s linear;
-  animation-iteration-count: infinite;
-}
-
-.m-button.is-disabled {
-  opacity: 0.65;
-}
-.m-button.is-inline {
-  display: inline-block;
-  width: auto !important;
+  &:active::before {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.15;
+    content: "";
+    border-radius: 6px;
+    background-color: currentColor;
+  }
 }
 
 @keyframes btn-spinner {

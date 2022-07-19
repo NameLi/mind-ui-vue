@@ -1,15 +1,12 @@
 <template>
-  <label
-    class="m-radio custom-class"
-    :class="isDisabled ? 'm-radio--disabled' : ''"
-  >
-    <div v-if="labelLeft" class="radio__label radio__label--left">
-      <slot></slot>
+  <label class="m-radio" :class="{ 'm-radio--disabled': isDisabled }">
+    <div v-if="labelLeft" class="m-radio__label m-radio__label--left">
+      <slot />
     </div>
 
-    <div class="radio__icon-wrap">
+    <div class="m-radio__container">
       <input
-        class="radio-input"
+        class="m-radio__input"
         type="radio"
         :value="name"
         v-model="currentValue"
@@ -17,7 +14,7 @@
         :name="name"
       />
       <div
-        class="radio__icon"
+        class="m-radio__icon"
         :class="getClass"
         :style="checkedColor ? 'color: ' + checkedColor : ''"
       ></div>
@@ -25,10 +22,10 @@
 
     <div
       v-if="!labelLeft"
-      class="radio__label radio__label--right"
+      class="m-radio__label m-radio__label--right"
       @click="onClickLabel"
     >
-      <slot></slot>
+      <slot />
     </div>
   </label>
 </template>
@@ -67,10 +64,10 @@ export default {
     getClass() {
       let classes = [];
       if (this.isDisabled) {
-        classes.push("radio__icon--disabled");
+        classes.push("m-radio__icon--disabled");
       }
       if (this.currentValue === this.name) {
-        classes.push("radio__icon--checked");
+        classes.push("m-radio__icon--checked");
       }
       return classes.join(" ");
     },
@@ -111,7 +108,7 @@ export default {
 
   methods: {
     onClickLabel() {
-      const { isDisabled, labelDisabled, name } = this;
+      const { isDisabled, labelDisabled } = this;
       if (!isDisabled && !labelDisabled) {
         this.$emit("change", this.currentValue);
       }
@@ -120,96 +117,92 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-radio {
   display: flex;
   align-items: center;
-}
+  .m-radio__container {
+    font-size: 0;
+  }
 
-.radio-input {
-  display: none;
-}
+  .m-radio__input {
+    display: none;
+  }
 
-.radio__icon-wrap {
-  /* display: inline-block; */ /* vertical-align: middle; */
-  font-size: 0;
-}
+  .m-radio__icon {
+    position: relative;
+    display: inline-block;
+    width: 18px; /*no*/
+    height: 18px; /*no*/
+    color: $color-primary;
+    text-align: center;
+    border: 1px solid #e5e5e5; /*no*/
+    border-radius: 100%;
+    box-sizing: content-box;
+    vertical-align: middle;
+    transition-property: color, border-color, background-color;
+    transition-duration: 0.2s;
+    box-sizing: border-box;
+  }
 
-.radio__icon {
-  position: relative;
-  display: inline-block;
-  width: 18PX;
-  height: 18PX;
-  color: $color-primary;
-  text-align: center;
-  border: 1PX solid #e5e5e5; /*no*/
-  border-radius: 100%;
-  box-sizing: content-box;
-  vertical-align: middle;
-  transition-property: color, border-color, background-color;
-  transition-duration: 0.2s;
-  box-sizing: border-box;
-}
+  .m-radio__icon::after {
+    display: block;
+    content: " ";
+    margin: auto;
+    width: 8px; /*no*/
+    height: 8px; /*no*/
+    border-radius: 100%;
+    background-color: currentColor;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: scale(0);
+    transition: transform 0.15s ease-in;
+  }
 
-.radio__icon::after {
-  display: block;
-  content: " ";
-  margin: auto;
-  width: 8PX;
-  height: 8PX;
-  border-radius: 100%;
-  background-color: currentColor;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  transform: scale(0);
-  transition: transform 0.15s ease-in;
-}
+  .m-radio__icon--checked {
+    border-color: currentColor;
+    &::after {
+      transform: scale(1);
+    }
+  }
 
-.radio__icon--checked {
-  border-color: currentColor;
-}
+  .m-radio__icon--disabled {
+    background-color: #ebedf0;
+    border-color: #c8c9cc;
+  }
 
-.radio__icon--checked::after {
-  transform: scale(1);
-}
+  .m-radio__icon--disabled.m-radio__icon--checked {
+    color: #c8c9cc;
+    &::after {
+      color: #c8c9cc;
+      background-color: #c8c9cc;
+    }
+  }
 
-.radio__icon--disabled {
-  background-color: #ebedf0;
-  border-color: #c8c9cc;
-}
+  .m-radio__label {
+    flex: 1;
+    word-wrap: break-word;
+    color: $color-text-regular;
+    line-height: 36px;
+  }
 
-.radio__icon--disabled.radio__icon--checked {
-  color: #c8c9cc;
-}
+  .m-radio__label--left {
+    margin-right: 20px;
+  }
 
-.radio__icon--disabled.radio__icon--checked::after {
-  color: #c8c9cc;
-  background-color: #c8c9cc;
-}
+  .m-radio__label--right {
+    margin-left: 20px;
+  }
 
-.radio__label {
-  flex: 1;
-  word-wrap: break-word;
-  color: $color-text-regular;
-  line-height: 36px;
-}
+  .m-radio__label--disabled {
+    color: #c8c9cc;
+  }
 
-.radio__label--left {
-  margin-right: 20px;
-}
-
-.radio__label--right {
-  margin-left: 20px;
-}
-
-.radio__label--disabled {
-  color: #c8c9cc;
-}
-
-.m-radio--disabled .label-class {
-  color: #c8c9cc;
+  .m-radio--disabled .m-radio__label {
+    color: #c8c9cc;
+  }
 }
 </style>

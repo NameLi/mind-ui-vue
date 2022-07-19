@@ -1,5 +1,5 @@
 <template>
-  <page title="模态框 Modal">
+  <page class="demo-page__modal" title="模态框 Modal">
     <demo-card title="JS 调用">
       <m-button @click="handleOpen6">Alert</m-button>
       <m-button @click="handleOpen7">Confirm</m-button>
@@ -19,7 +19,7 @@
       @confirm="handleClose1"
       :show-cancel-button="false"
       content="操作成功！"
-    ></m-modal>
+    />
 
     <m-modal title="提示" :visible.sync="visible2" @confirm="handleClose2">
       确定执行此操作？
@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: "modal",
+  name: "demo-modal",
   data() {
     return {
       visible1: false,
@@ -169,16 +169,19 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.custom-content {
-  max-width: 100%;
-  max-height: 250px;
-}
-
-/deep/ .m-button {
-  margin-bottom: 15px;
-  &.is-inline {
-    margin-right: 20px !important;
+<style lang="scss">
+.demo-page__modal {
+  .custom-content {
+    max-width: 100%;
+    max-height: 250px;
+  }
+  .demo-card {
+    .m-button {
+      margin-bottom: 15px;
+      &.is-inline {
+        margin-right: 20px !important;
+      }
+    }
   }
 }
 </style>

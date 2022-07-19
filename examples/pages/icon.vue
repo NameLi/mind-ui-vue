@@ -1,9 +1,9 @@
 <template>
-  <page title="图标 Icon">
+  <page class="demo-page__icon" title="图标 Icon">
     <demo-card title="基础用法">
       <div class="icon-wrap">
         <div class="icon-item">
-          <m-icon name="love" color="pink" size="40"></m-icon>
+          <m-icon name="love" color="pink" size="40" />
         </div>
       </div>
     </demo-card>
@@ -11,13 +11,13 @@
     <demo-card title="自定义颜色">
       <div class="icon-wrap">
         <div class="icon-item">
-          <m-icon name="love" size="60" color="#0181ff"></m-icon>
+          <m-icon name="love" size="60" color="#0181ff" />
         </div>
         <div class="icon-item">
-          <m-icon name="love" size="60" color="#EE5C42"></m-icon>
+          <m-icon name="love" size="60" color="#EE5C42" />
         </div>
         <div class="icon-item">
-          <m-icon name="love" size="60" color="#67c23a"></m-icon>
+          <m-icon name="love" size="60" color="#67c23a" />
         </div>
       </div>
     </demo-card>
@@ -25,13 +25,13 @@
     <demo-card title="自定义大小">
       <div class="icon-wrap">
         <div class="icon-item">
-          <m-icon name="love" size="48"></m-icon>
+          <m-icon name="love" size="48" />
         </div>
         <div class="icon-item">
-          <m-icon name="love" size="60"></m-icon>
+          <m-icon name="love" size="60" />
         </div>
         <div class="icon-item">
-          <m-icon name="love" size="84"></m-icon>
+          <m-icon name="love" size="84" />
         </div>
       </div>
     </demo-card>
@@ -42,7 +42,7 @@
           <m-icon
             name="https://note-file.ixook.com/FkwInL0tWpqDeRNtYHMfmaHlioTq"
             size="80"
-          ></m-icon>
+          />
         </div>
       </div>
     </demo-card>
@@ -109,26 +109,28 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-/deep/ .custom-content-class {
-  margin-left: -32px;
-  margin-right: -30px;
-}
+<style lang="scss">
+.demo-page__icon {
+  .demo-card__content {
+    margin-left: -32px;
+    margin-right: -32px;
+  }
 
-.icon-wrap {
-  font-size: 0;
-}
+  .icon-wrap {
+    font-size: 0;
+  }
 
-.icon-item {
-  display: inline-block;
-  padding: 30px 0;
-  min-width: 33%;
-  max-width: 33.3%;
-  text-align: center;
-}
+  .icon-item {
+    display: inline-block;
+    padding: 30px 0;
+    min-width: 33%;
+    max-width: 33.3%;
+    text-align: center;
+  }
 
-.icon-name {
-  font-size: 32px;
-  color: #aaa;
+  .icon-name {
+    font-size: 32px;
+    color: #aaa;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <page title="Color 主题色">
-    <div class="wrap">
+    <div class="demo-page__color">
       <demo-card title="主题色">
         <div class="grid">
           <div class="color-item primary">
@@ -72,12 +72,12 @@
 
 <script>
 export default {
-  name: "home",
+  name: "demo-color",
 };
 </script>
 
-<style lang="scss" scoped>
-.wrap {
+<style lang="scss">
+.demo-page__color {
   .custom-card {
     margin: 0 -12px;
   }

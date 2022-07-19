@@ -1,5 +1,5 @@
 <template>
-  <page title="提示 Toast">
+  <page class="demo-page__toast" title="提示 Toast">
     <demo-card title="基础用法">
       <m-button @click="handleToast">简单提示</m-button>
     </demo-card>
@@ -22,8 +22,6 @@
 <script>
 export default {
   name: "demo-toast",
-
-  mounted() {},
 
   methods: {
     // 基础文字提示
@@ -101,11 +99,13 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-/deep/ .m-button {
-  margin-bottom: 15px;
-  &.is-inline {
-    margin-right: 20px !important;
+<style lang="scss">
+.demo-page__toast {
+  .m-button {
+    margin-bottom: 15px;
+    &.is-inline {
+      margin-right: 20px !important;
+    }
   }
 }
 </style>

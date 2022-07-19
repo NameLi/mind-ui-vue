@@ -1,5 +1,5 @@
 <template>
-  <page title="单选框 Radio">
+  <page class="demo-page__radio" title="单选框 Radio">
     <demo-card title="基础用法" :desc="radio1">
       <m-radio-group v-model="radio1" @change="onChange">
         <m-radio name="选项1">选项1</m-radio>
@@ -39,10 +39,10 @@
         @change="onChange"
       >
         <m-cell icon="feed" icon-color="#00CDA2" title="选项1">
-          <m-radio name="选项1"></m-radio>
+          <m-radio name="选项1" />
         </m-cell>
         <m-cell icon="feed" icon-color="#00CDA2" title="选项2">
-          <m-radio name="选项2"></m-radio>
+          <m-radio name="选项2" />
         </m-cell>
       </m-radio-group>
     </demo-card>
@@ -51,6 +51,7 @@
 
 <script>
 export default {
+  name: "demo-radio",
   data() {
     return {
       radio1: "",
@@ -68,8 +69,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/deep/ .m-radio {
-  margin-bottom: 12px !important;
+<style lang="scss">
+.demo-page__radio {
+  .m-radio {
+    margin-bottom: 12px !important;
+  }
 }
 </style>

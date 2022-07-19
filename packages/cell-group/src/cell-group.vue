@@ -1,15 +1,12 @@
 <template>
-  <div
-    class="custom-class m-cell__group"
-    :class="card ? 'm-cell__group--card' : ''"
-  >
+  <div class="m-cell__group" :class="{ 'm-cell__group--card': card }">
     <div v-if="title" class="m-cell__group__header">
       <div class="m-cell__group__title">{{ title }}</div>
-      <slot name="group-suffix"></slot>
+      <slot name="group-suffix" />
     </div>
 
     <div class="m-cell__list" :class="{ 'is-border': border }">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -60,47 +57,30 @@ export default {
   margin: 0;
   background: #fff;
   transition: margin 0.2s;
-}
+  &.m-cell__group--card {
+    margin: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
-.m-cell__group--card {
-  margin: 32px;
-  border-radius: 12px;
-  overflow: hidden;
-}
+  .m-cell__group__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 32px;
+    height: 100px;
+    font-size: 32px;
+    color: #999;
+    background: #fcfcfc;
+  }
 
-.m-cell__group__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 0 32px;
-  height: 100px;
-  font-size: 32px;
-  color: #999;
-  background: #fcfcfc;
-}
-
-.m-cell__group__title {
-  flex: 1;
-  width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.m-cell__list {
-  &.is-border {
-    .m-cell:not(:nth-last-child(1))::after {
-      content: " ";
-      display: block;
-      position: absolute;
-      left: 20px;
-      bottom: 0;
-      right: 20px;
-      height: 1px;
-      background: $color-border;
-      transform: scaleY(0.5);
-    }
+  .m-cell__group__title {
+    flex: 1;
+    width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 </style>

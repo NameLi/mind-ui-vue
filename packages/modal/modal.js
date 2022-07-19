@@ -12,6 +12,7 @@ const defaults = {
   showConfirmButton: true,
   showCancelButton: true,
   confirmButtonText: "确定",
+  confirmButtondisabled: false,
   cancelButtonText: "取消",
   confirmTextColor: "#409EFF",
   loading: false,
@@ -31,7 +32,7 @@ const Modal = (options = {}) => {
     } else {
       instance = Object.assign(instance, defaults, options);
     }
-    
+
     instance.visible = true;
 
     instance._confirm = resolve;
@@ -60,7 +61,7 @@ Modal.confirm = (options) =>
     )
   );
 
-Modal.close = function() {
+Modal.close = function () {
   if (!instance) return;
 
   instance.visible = false;

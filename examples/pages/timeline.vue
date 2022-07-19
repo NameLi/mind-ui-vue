@@ -1,6 +1,6 @@
 <template>
-  <page title="时间轴 Timeline">
-    <div class="wrapper">
+  <page class="demo-page__timeline" title="时间轴 Timeline">
+    <div class="demo-timeline">
       <m-timeline>
         <m-timeline-item text="start">
           <div class="content">时光荏苒</div>
@@ -50,13 +50,15 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.wrapper {
-  padding-top: 30px;
-}
-.content {
-  padding: 32px;
-  background-color: #f1f1f1;
-  border-radius: 6px;
+<style lang="scss">
+.demo-page__timeline {
+  .demo-timeline {
+    padding-top: 30px;
+    .content {
+      padding: 32px;
+      background-color: #f1f1f1;
+      border-radius: 6px;
+    }
+  }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="m-index-item" ref="indexItem">
-    <div class="m-index-item__header custom-class">{{ name }}</div>
+    <div class="m-index-item__header">{{ name }}</div>
     <div class="m-index-item__content">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -38,17 +38,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.m-index-item__header {
-  height: 60px;
-  line-height: 60px;
-  font-size: 28px;
-  padding-left: 20px;
-  background: #eee;
-  box-sizing: border-box;
-}
+<style lang="scss">
+.m-index-item {
+  .m-index-item__header {
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px;
+    padding-left: 20px;
+    background: #eee;
+    box-sizing: border-box;
+  }
 
-.m-index-item__content {
-  font-size: 28px;
+  .m-index-item__content {
+    font-size: 28px;
+  }
 }
 </style>

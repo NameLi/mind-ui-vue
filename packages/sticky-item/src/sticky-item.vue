@@ -1,17 +1,17 @@
 <template>
-  <div class="m-sticky-item custom-class" ref="wrap">
-    <div class="sticky" :style="getWrapStyle">
+  <div class="m-sticky-item" ref="wrap">
+    <div class="m-sticky-item__container" :style="getWrapStyle">
       <div
         ref="header"
         class="m-sticky-item__header"
-        :class="isFixed === true ? 'm-sticky__is-fixed' : ''"
+        :class="{ 'm-sticky-item__is-fixed': isFixed }"
         :style="getStyle"
       >
-        <slot name="title"></slot>
+        <slot name="title" />
       </div>
     </div>
 
-    <slot name="content"></slot>
+    <slot name="content" />
   </div>
 </template>
 
@@ -71,7 +71,7 @@ export default {
     },
 
     // 更新元素高度
-    updateRect(zIndex, index) {
+    updateRect(zIndex) {
       this.zIndex = zIndex;
 
       this.getHeaderHeight();
@@ -92,33 +92,33 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-sticky-item {
   position: relative;
-}
 
-.m-sticky-item__header {
-  width: 100%;
-}
+  .m-sticky-item__header {
+    width: 100%;
+  }
 
-.sticky {
-  width: 100%;
-  z-index: 9;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
+  .m-sticky-item__container {
+    width: 100%;
+    z-index: 9;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
 
-.m-sticky-item__title {
-  z-index: 1;
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  background: #eee;
-}
+  .m-sticky-item__title {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background: #eee;
+  }
 
-.m-sticky__is-fixed {
-  position: fixed;
-  top: 0;
+  .m-sticky-item__is-fixed {
+    position: fixed;
+    top: 0;
+  }
 }
 </style>

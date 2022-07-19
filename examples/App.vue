@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <keep-alive include="home">
-      <router-view></router-view>
+      <router-view />
     </keep-alive>
   </div>
 </template>
@@ -10,6 +10,7 @@
 const pathList = [
   "home",
   "color",
+  "style",
   "button",
   "icon",
   "cell",
@@ -40,7 +41,6 @@ const pathList = [
   "radio",
   "checkbox",
   "rate",
-  "can-use-sticky",
 ];
 
 export default {
@@ -89,8 +89,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../src/assets/font/iconfont.css";
-
 .overflow-hidden {
   overflow: hidden;
 }

@@ -1,7 +1,6 @@
 <template>
-  <page title="抽屉 Drawer">
-    <div style="margin-top: 20px"></div>
-
+  <page class="demo-page__drawer" title="抽屉 Drawer">
+    <div style="height: 20px"></div>
     <div class="button-group">
       <m-button @click="toggleLeft">左边弹出</m-button>
       <m-button @click="toggleRight">右边弹出</m-button>
@@ -45,6 +44,7 @@
 
 <script>
 export default {
+  name: "demo-drawer",
   data() {
     return {
       showLeft: false,
@@ -83,25 +83,27 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.container {
-  width: 50vw;
-  height: 100vh;
-  background: #fff;
-}
+<style lang="scss">
+.demo-page__drawer {
+  .container {
+    width: 50vw;
+    height: 100vh;
+    background: #fff;
+  }
 
-.container2 {
-  padding: 32px;
-  width: 100vw;
-  height: 40vh;
-  background: #fff;
-  box-sizing: border-box;
-}
+  .container2 {
+    padding: 32px;
+    width: 100vw;
+    height: 40vh;
+    background: #fff;
+    box-sizing: border-box;
+  }
 
-.container,
-.container2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .container,
+  .container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

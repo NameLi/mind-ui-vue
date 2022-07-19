@@ -1,6 +1,6 @@
 <template>
   <div class="m-checkbox-group">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
@@ -35,31 +35,29 @@ export default {
 
   watch: {
     value(val) {
-      this._getValueLength()
+      this._getValueLength();
       this.$emit("change", val);
     },
   },
 
   data() {
     return {
-      len: 0
-    }
+      len: 0,
+    };
   },
 
   mounted() {
-    this._getValueLength()
+    this._getValueLength();
   },
 
   methods: {
     _getValueLength() {
-      if(Array.isArray(this.value)) {
-        this.len = this.value.length
+      if (Array.isArray(this.value)) {
+        this.len = this.value.length;
       } else {
-        this.len = 0
+        this.len = 0;
       }
     },
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

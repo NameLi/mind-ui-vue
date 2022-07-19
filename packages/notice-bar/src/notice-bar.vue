@@ -1,14 +1,14 @@
 <template>
-  <div class="notice-bar__wrap custom-class">
-    <slot name="preifx"></slot>
+  <div class="m-notice-bar__wrap">
+    <slot name="preifx" />
 
-    <div class="notice-bar">
-      <div class="notice-bar__content" :class="classes" :style="styles">
+    <div class="m-notice-bar">
+      <div class="m-notice-bar__content" :class="classes" :style="styles">
         <slot />
       </div>
     </div>
 
-    <slot name="suffix"></slot>
+    <slot name="suffix" />
   </div>
 </template>
 
@@ -52,9 +52,10 @@ export default {
       if (!this.isScrollable || this.delaySec === 0 || this.multiline)
         return "";
       return [
-        "animation-name: notice-once, notice-round",
-        `animation-duration: ${this.delaySec}s, ${this.delaySec +
-          750 / this.speed}s`,
+        "animation-name: m-notice-once, m-notice-round",
+        `animation-duration: ${this.delaySec}s, ${
+          this.delaySec + 750 / this.speed
+        }s`,
         "animation-timing-function: linear, linear",
         `animation-delay: ${this.delay}s, ${this.delaySec + this.delay}s`,
         "animation-iteration-count: 1, infinite",
@@ -66,7 +67,7 @@ export default {
         classes.push("m-ellipsis");
       }
       if (this.multiline) {
-        classes.push("multiline");
+        classes.push("m-multiline");
       }
       return classes.join(" ");
     },
@@ -77,12 +78,13 @@ export default {
   methods: {
     getContainerWidth() {
       const wrapW = document.body.offsetWidth;
-      const containW = document.querySelector(".notice-bar__content")
-        .offsetWidth;
-      const noticeW = document.querySelector(".notice-bar").offsetWidth;
+      const containW = document.querySelector(
+        ".m-notice-bar__content"
+      ).offsetWidth;
+      const noticeW = document.querySelector(".m-notice-bar").offsetWidth;
 
       const absContainW = containW * (750 / wrapW); // 内容宽度（折合为rpx）
-      const absNoticeW = noticeW * (750 / wrapW);
+      // const absNoticeW = noticeW * (750 / wrapW);
 
       // 内容宽度小于内容区域宽度，则不滚动
       if (containW <= noticeW) {
@@ -96,7 +98,7 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes notice-once {
+@keyframes m-notice-once {
   0% {
     transform: translateX(0);
   }
@@ -105,7 +107,7 @@ export default {
   }
 }
 
-@keyframes notice-round {
+@keyframes m-notice-round {
   0% {
     transform: translateX(750px);
   }
@@ -113,45 +115,42 @@ export default {
     transform: translateX(-100%);
   }
 }
-</style>
-
-<style scoped lang="scss">
-.notice-bar__wrap {
+.m-notice-bar__wrap {
   display: flex;
   align-items: center;
   font-size: 28px;
   color: #ed6a0c;
   background-color: #fffbe8;
-}
 
-.notice-bar {
-  position: relative;
-  flex: 1;
-  padding: 20px 16px;
-  width: 0;
-  min-height: 76px;
-  line-height: 1.4;
-  overflow: hidden;
-}
+  .m-notice-bar {
+    position: relative;
+    flex: 1;
+    padding: 20px 16px;
+    width: 0;
+    min-height: 76px;
+    line-height: 1.4;
+    overflow: hidden;
+  }
 
-.notice-bar__content {
-  z-index: 0;
-  position: absolute;
-  white-space: nowrap;
-  transform: translateX(0);
-  animation-name: once, round;
-}
+  .m-notice-bar__content {
+    z-index: 0;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateX(0);
+    animation-name: m-notice-once, round;
+  }
 
-.m-ellipsis {
-  position: static;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .m-ellipsis {
+    position: static;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-.multiline {
-  position: static;
-  overflow: auto;
-  white-space: normal;
+  .m-multiline {
+    position: static;
+    overflow: auto;
+    white-space: normal;
+  }
 }
 </style>

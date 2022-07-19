@@ -1,0 +1,129 @@
+// 动画
+
+@keyframes m-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes m-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes m-slide-up-enter {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes m-slide-up-leave {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes m-slide-down-enter {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes m-slide-down-leave {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes m-slide-left-enter {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes m-slide-left-leave {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes m-slide-right-enter {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes m-slide-right-leave {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes m-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.m-fade {
+  &-enter-active {
+    animation: m-fade-in 0.3s ease-out both;
+  }
+
+  &-leave-active {
+    animation: m-fade-out 0.3s ease-in both;
+  }
+}
+
+.m-slide-up {
+  &-enter-active {
+    animation: m-slide-up-enter 0.3s ease-out both;
+  }
+
+  &-leave-active {
+    animation: m-slide-up-leave 0.3s ease-in both;
+  }
+}
+
+.m-slide-down {
+  &-enter-active {
+    animation: m-slide-down-enter 0.3s ease-out both;
+  }
+
+  &-leave-active {
+    animation: m-slide-down-leave 0.3s ease-in both;
+  }
+}
+
+.m-slide-left {
+  &-enter-active {
+    animation: m-slide-left-enter 0.3s ease-out both;
+  }
+
+  &-leave-active {
+    animation: m-slide-left-leave 0.3s ease-in both;
+  }
+}
+
+.m-slide-right {
+  &-enter-active {
+    animation: m-slide-right-enter 0.3s ease-out both;
+  }
+
+  &-leave-active {
+    animation: m-slide-right-leave 0.3s ease-in both;
+  }
+}

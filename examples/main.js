@@ -4,7 +4,7 @@ import router from "./router";
 import "lib-flexible";
 import "./assets/css/index.css";
 
-import MindUI from '../src/index'
+import MindUI from '../src/index.js'
 Vue.use(MindUI);
 
 import DemoCard from "./components/demo-card/index";

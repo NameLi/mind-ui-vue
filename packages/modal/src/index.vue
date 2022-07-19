@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-modal__wrap">
     <div v-show="visible" class="m-mask" @click="onMaskClick"></div>
 
     <transition name="modal-bounce">
@@ -13,7 +13,7 @@
             </div>
 
             <div class="m-modal__body" v-else>
-              <slot></slot>
+              <slot />
             </div>
 
             <div class="m-btn-group">
@@ -60,6 +60,7 @@ export default {
       showConfirmButton: false,
       showCancelButton: false,
       confirmButtonText: "确定",
+      confirmButtonDisabled: false,
       cancelButtonText: "取消",
       confirmTextColor: "#409EFF",
       asyncClose: false,
@@ -69,6 +70,8 @@ export default {
   methods: {
     // 确定
     onConfirm() {
+      if (this.confirmButtonDisabled) return;
+
       if (this.loading) return;
 
       this._confirm(this);
@@ -96,7 +99,6 @@ export default {
 
     onMaskClick() {
       this.visible = false;
-
       this.close();
     },
 
@@ -110,111 +112,113 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.m-mask {
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 1;
-  visibility: visible;
-  background: $color-mask;
-  transition: opacity 0.2s ease-in-out;
-}
+<style lang="scss">
+.m-modal__wrap {
+  .m-mask {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    background: $color-mask;
+    transition: opacity 0.2s ease-in-out;
+  }
 
-.m-mask.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+  .m-mask.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
 
-.m-modal-wrapper {
-  z-index: 1001;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  opacity: 1;
-}
+  .m-modal-wrapper {
+    z-index: 1001;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 1;
+  }
 
-.m-modal {
-  z-index: 9;
-  position: relative;
-  width: 540px;
-}
+  .m-modal {
+    z-index: 9;
+    position: relative;
+    width: 540px;
+  }
 
-.m-modal__content {
-  position: relative;
-  border-radius: 3px;
-  padding-top: 30px;
-  background-color: #fff;
-  border: 0;
-  background-clip: padding-box;
-  text-align: center;
-  height: 100%;
-  overflow: hidden;
-}
+  .m-modal__content {
+    position: relative;
+    border-radius: 3px;
+    padding-top: 30px;
+    background-color: #fff;
+    border: 0;
+    background-clip: padding-box;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+  }
 
-.m-modal__title {
-  margin: 0;
-  padding: 12px 30px 24px;
-  font-size: 36px;
-  line-height: 1;
-  color: #1c2438;
-  text-align: center;
-}
+  .m-modal__title {
+    margin: 0;
+    padding: 12px 30px 24px;
+    font-size: 36px;
+    line-height: 1;
+    color: #1c2438;
+    text-align: center;
+  }
 
-.m-modal__body {
-  // max-height: 300px;
-  margin-bottom: 30px;
-  padding: 20px 40px;
-  font-size: 28px;
-  color: #80848f;
-  line-height: 1.5;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  .m-modal__body {
+    // max-height: 300px;
+    margin-bottom: 30px;
+    padding: 20px 40px;
+    font-size: 28px;
+    color: #80848f;
+    line-height: 1.5;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-.m-btn-group {
-  position: relative;
-  display: flex;
-}
+  .m-btn-group {
+    position: relative;
+    display: flex;
+  }
 
-.m-btn-item {
-  position: relative;
-  flex: 1;
-}
+  .m-btn-item {
+    position: relative;
+    flex: 1;
+  }
 
-.m-btn-group::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  transform: scaleY(0.5);
-  background: #ddd;
-}
+  .m-btn-group::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: scaleY(0.5);
+    background: #ddd;
+  }
 
-.m-btn-cancel::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1px;
-  height: 100%;
-  transform: scaleX(0.5);
-  background: #ddd;
-}
+  .m-btn-cancel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    transform: scaleX(0.5);
+    background: #ddd;
+  }
 
-.modal-bounce-enter {
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale(0.7);
-}
-.modal-bounce-leave-active {
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  .modal-bounce-enter {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.7);
+  }
+  .modal-bounce-leave-active {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
 }
 </style>

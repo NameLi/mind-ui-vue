@@ -1,5 +1,5 @@
 <template>
-  <page title="轮播图 Swiper">
+  <page class="demo-page__swiper" title="轮播图 Swiper">
     <div style="height: 30px"></div>
 
     <swiper class="swiper" :options="swiperOption">
@@ -10,7 +10,7 @@
       >
         <div
           class="slide-image"
-          :class="index == currentDot ? 'is-actived' : ''"
+          :class="{ 'is-actived': index == currentDot }"
           :style="'background-color: ' + item.bgcolor"
         ></div>
       </swiper-slide>
@@ -73,96 +73,89 @@ export default {
 </script>
 
 <style lang="scss">
-.swiper-container {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-  list-style: none;
-  padding: 0;
-  z-index: 1;
-}
-
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  transition: 300ms opacity;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-  bottom: 0;
-}
-
-.swiper-pagination.swiper-pagination-hidden {
-  // opacity: 0;
-}
-
-.swiper-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: flex;
-  transition-property: transform;
-  box-sizing: content-box;
-}
-
-.swiper-slide {
-  flex-shrink: 0;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition-property: transform;
-}
-
-.swiper-pagination-bullet {
-  background: #fff;
-  display: inline-block;
-  margin: 0 4px;
-  width: 30px;
-  height: 6px;
-  border-radius: 6px;
-}
-.swiper-pagination-bullet-active {
-  background: #00cda2;
-}
-
-.swiper-pagination-fraction,
-.swiper-pagination-custom,
-.swiper-container-horizontal > .swiper-pagination-bullets {
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-}
-
-.swiper-pagination {
-  position: absolute;
-  text-align: center;
-  transition: 300ms opacity;
-  transform: translate3d(0, 0, 0);
-  z-index: 10;
-}
-.swiper-pagination.swiper-pagination-hidden {
-  // opacity: 0;
-}
-</style>
-
-<style lang="scss" scoped>
-.swiper-slide {
-  height: 380px;
-  text-align: center;
-  font-size: 18px; /*no*/
-  background: #fff;
-  width: 650px;
-  transition: transform 0.5s;
-  transform: scale(0.92);
-  .slide-image {
-    height: 380px;
-    border-radius: 8px;
+.demo-page__swiper {
+  .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
   }
-}
 
-.swiper-slide-active,
-.swiper-slide-duplicate-active {
-  transform: scale(1);
+  .swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+    bottom: 0;
+  }
+
+  .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+  }
+
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff;
+    display: inline-block;
+    margin: 0 4px;
+    width: 30px;
+    height: 6px;
+    border-radius: 6px;
+  }
+  .swiper-pagination-bullet-active {
+    background: #00cda2;
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+  }
+
+  .swiper-slide {
+    height: 380px;
+    text-align: center;
+    font-size: 18px; /*no*/
+    background: #fff;
+    width: 650px;
+    transition: transform 0.5s;
+    transform: scale(0.92);
+    .slide-image {
+      height: 380px;
+      border-radius: 8px;
+    }
+  }
+
+  .swiper-slide-active,
+  .swiper-slide-duplicate-active {
+    transform: scale(1);
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <page title="多选框 Checkbox">
+  <page class="demo-page__checkbox" title="多选框 Checkbox">
     <demo-card title="基础用法" :desc="String(checkbox1)">
       <m-checkbox v-model="checkbox1" @change="onChange"> 复选框 </m-checkbox>
     </demo-card>
@@ -48,13 +48,13 @@
       <m-cell-group border>
         <m-checkbox-group v-model="result3" :max="2" @change="onGroupChange">
           <m-cell title="复选框o">
-            <m-checkbox name="o"></m-checkbox>
+            <m-checkbox name="o" />
           </m-cell>
           <m-cell title="复选框p">
-            <m-checkbox name="p"></m-checkbox>
+            <m-checkbox name="p" />
           </m-cell>
           <m-cell title="复选框q">
-            <m-checkbox name="q"></m-checkbox>
+            <m-checkbox name="q" />
           </m-cell>
         </m-checkbox-group>
       </m-cell-group>
@@ -64,6 +64,7 @@
 
 <script>
 export default {
+  name: "demo-checkbox",
   data() {
     return {
       checkbox1: true,
@@ -77,17 +78,25 @@ export default {
     };
   },
   methods: {
-    onChange(value) {},
+    onChange(value) {
+      console.log(value);
+    },
 
-    onGroupChange(value) {},
+    onGroupChange(value) {
+      console.log(value);
+    },
 
-    onGroupChange2(value) {},
+    onGroupChange2(value) {
+      console.log(value);
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-/deep/ .m-checkbox {
-  margin-bottom: 12px !important;
+<style lang="scss">
+.demo-page__checkbox {
+  .m-checkbox {
+    margin-bottom: 12px !important;
+  }
 }
 </style>

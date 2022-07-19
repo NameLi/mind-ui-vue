@@ -14,6 +14,10 @@ const constantRoutes = [
         component: require("../pages/button.vue").default,
       },
       {
+        path: "/style",
+        component: require("../pages/style.vue").default,
+      },
+      {
         path: "/color",
         component: require("../pages/color.vue").default,
       },
@@ -145,7 +149,7 @@ export default new Router({
   mode: "history",
   linkActiveClass: "actived",
   linkExactActiveClass: "actived",
-  base: '/vue/',//__dirname,
+  base: '/',//__dirname,
   routes: constantRoutes,
   // scrollBehavior(to, from, savedPosition) {
   //   if (to.name === 'home') {

@@ -1,28 +1,28 @@
 <template>
   <div @click="onClick" class="m-cell" :class="customClass">
-    <div v-if="icon" class="icon m-cell__header">
-      <m-icon :name="icon" size="38" :color="iconColor"></m-icon>
+    <div v-if="icon" class="m-cell__header">
+      <m-icon :name="icon" size="38" :color="iconColor" />
     </div>
 
     <div v-if="title" class="m-cell__title">{{ title }}</div>
-    <slot v-else name="title"></slot>
+    <slot v-else name="title" />
 
     <div v-if="value" class="m-cell__desc" :class="{ 'is-ellipsis': ellipsis }">
       {{ value }}
     </div>
 
     <div v-else class="slot">
-      <slot></slot>
+      <slot />
     </div>
 
     <m-icon
       v-if="url"
-      class="icon m-cell__footer"
-      catchtap="navigateTo"
+      class="m-cell__footer"
+      @click="onClick"
       name="arrow-right"
       size="32"
       color="#999"
-    ></m-icon>
+    />
   </div>
 </template>
 
@@ -70,7 +70,7 @@ export default {
     },
     customClass() {
       return [
-        this.border ? "border-bottom" : "",
+        this.border ? "m-cell__hairline" : "",
         this.url ? "m-cell--hover" : "",
       ].join(" ");
     },
@@ -100,25 +100,15 @@ export default {
     background-color: #f3f4f5;
   }
 
-  .icon {
-    width: 38px;
-    text-align: center;
-  }
-
-  .image-icon {
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-  }
-
   .m-cell__header {
     margin-right: 12px;
     display: flex;
     align-items: center;
   }
   .m-cell__footer {
-    text-align: right;
     margin-left: 24px;
+    width: 38px;
+    text-align: center;
   }
 
   .m-cell__title {
@@ -150,15 +140,15 @@ export default {
     vertical-align: middle;
   }
 
-  .border-bottom::after {
-    content: " ";
-    display: block;
+  &.m-cell__hairline::after {
     position: absolute;
-    left: 20px;
+    box-sizing: border-box;
+    content: " ";
+    pointer-events: none;
+    right: 32px;
     bottom: 0;
-    right: 20px;
-    height: 1px;
-    background: $color-border;
+    left: 32px;
+    border-bottom: 1PX solid $color-border; /*no*/
     transform: scaleY(0.5);
   }
 }

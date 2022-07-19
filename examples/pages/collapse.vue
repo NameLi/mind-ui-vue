@@ -1,11 +1,11 @@
 <template>
-  <page title="折叠面板 Collapse">
+  <page class="demo-collapse" title="折叠面板 Collapse">
     <div class="button-group">
       <m-button @click="handleSwitch1">默认展开</m-button>
     </div>
 
     <m-collapse :visible="switch1">
-      <div class="card">
+      <div class="demo-card">
         <div>
           <p>《赠药山高僧惟俨》</p>
           <p>练得身形似鹤形，千株松下两函经。</p>
@@ -20,7 +20,7 @@
       <m-button @click="handleSwitch2">默认折叠</m-button>
     </div>
     <m-collapse :visible="switch2">
-      <div class="card">
+      <div class="demo-card">
         <div>
           <p>《沁园春·雪》</p>
           <p>北国风光，千里冰封，万里雪飘。</p>
@@ -39,7 +39,7 @@
       <m-button @click="handleSwitch3">默认折叠(动画时长100ms)</m-button>
     </div>
     <m-collapse :visible="switch3" duration="150">
-      <div class="card">
+      <div class="demo-card">
         <div>
           <p>《沁园春·雪》</p>
           <p>北国风光，千里冰封，万里雪飘。</p>
@@ -58,6 +58,7 @@
 
 <script>
 export default {
+  name: "demo-collapse",
   data() {
     return {
       switch1: false,
@@ -69,35 +70,37 @@ export default {
     this.switch1 = true;
   },
   methods: {
-    handleSwitch1(e) {
+    handleSwitch1() {
       this.switch1 = !this.switch1;
     },
 
-    handleSwitch2(e) {
+    handleSwitch2() {
       this.switch2 = !this.switch2;
     },
 
-    handleSwitch3(e) {
+    handleSwitch3() {
       this.switch3 = !this.switch3;
     },
   },
 };
 </script>
 
-<style scoped lang="scss">
-.button-group {
-  margin-top: 15px;
-  /deep/ .m-button {
-    margin-bottom: 0 !important;
+<style lang="scss">
+.demo-collapse {
+  .button-group {
+    margin-top: 15px;
+    .m-button {
+      margin-bottom: 0 !important;
+    }
   }
-}
-.card {
-  margin: 0 32px;
-  padding: 20px;
-  background: #f5f5f5;
-  text-align: center;
-  color: #777;
-  line-height: 46px;
-  font-size: 28px;
+  .demo-card {
+    margin: 0 32px;
+    padding: 20px;
+    background: #f5f5f5;
+    text-align: center;
+    color: #777;
+    line-height: 46px;
+    font-size: 28px;
+  }
 }
 </style>

@@ -1,10 +1,6 @@
 <template>
-  <div
-    class="collapse__wrap"
-    :style="styles"
-    @transitionend="onTransitionEnd"
-  >
-    <div class="content" ref="content">
+  <div class="m-collapse" :style="styles" @transitionend="onTransitionEnd">
+    <div class="m-collapse__content" ref="content">
       <slot />
     </div>
   </div>
@@ -16,11 +12,11 @@ export default {
   props: {
     duration: {
       type: [Number, String],
-      value: 300,
+      default: 300,
     },
     visible: {
       type: Boolean,
-      value: false,
+      default: false,
     },
   },
   data() {
@@ -34,27 +30,31 @@ export default {
       if (val && this.isReady) {
         this.getContainerHeight();
       } else {
-        this.contentHeight = 0
+        this.contentHeight = 0;
       }
-		}
-	},
-	computed: {
-		styles() {
-			return [`height: ${this.contentHeight}px`, `transition-duration: ${this.duration}ms`].join(";")
-		}
-	},
+    },
+  },
+  computed: {
+    styles() {
+      return [
+        `height: ${this.contentHeight}px`,
+        `transition-duration: ${this.duration}ms`,
+      ].join(";");
+    },
+  },
   mounted() {
     this.isReady = true;
 
     if (this.visible) {
-			this.getContainerHeight();
+      this.getContainerHeight();
     }
   },
 
   methods: {
     getContainerHeight() {
-        const contentHeight = this.$refs.content.offsetHeight
-        this.contentHeight = contentHeight
+      this.$nextTick(() => {
+        this.contentHeight = this.$refs.content.offsetHeight;
+      });
     },
 
     onTransitionEnd() {
@@ -64,8 +64,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.collapse__wrap {
+<style lang="scss">
+.m-collapse {
   transition-property: height;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;

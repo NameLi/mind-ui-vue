@@ -1,6 +1,6 @@
 <template>
-  <div class="m-grid" :class="border ? 'm-grid--border' : ''">
-    <slot></slot>
+  <div class="m-grid" :class="{ 'm-grid__hairline--lt': border }">
+    <slot />
   </div>
 </template>
 
@@ -10,49 +10,49 @@ export default {
   props: {
     height: {
       type: String,
-      value: 'auto',
+      default: "auto",
     },
 
     columnCount: {
       type: [Number, String],
-      value: 4,
+      default: 4,
     },
 
     border: {
       type: Boolean,
-      value: true,
-    }
+      default: true,
+    },
   },
 
   computed: {
     width() {
-      return 100 / parseInt(this.columnCount) + '%'
-    }
+      return 100 / parseInt(this.columnCount) + "%";
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-grid {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-}
-
-.m-grid.m-grid--border::after {
-  z-index: 1;
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  transform: scale(0.5);
-  transform-origin: 0 0;
-  box-sizing: border-box;
-  border: 1PX solid transparent;/*no*/
-  border-left-color: $color-border;
-  border-top-color: $color-border;
+  &.m-grid__hairline--lt {
+    &::after {
+      z-index: 1;
+      position: absolute;
+      content: " ";
+      pointer-events: none;
+      top: -50%;
+      right: -50%;
+      bottom: -50%;
+      left: -50%;
+      border: 0 solid $color-border;
+      transform: scale(0.5);
+      box-sizing: border-box;
+      border-width: 1px 0 0 1px; /*no*/
+    }
+  }
 }
 </style>

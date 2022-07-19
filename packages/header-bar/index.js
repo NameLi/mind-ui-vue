@@ -1,8 +1,8 @@
-import HeaderBar from "./src/header-bar";
+import MHeaderBar from "./src/header-bar";
 
-/* istanbul ignore next */
-HeaderBar.install = function(Vue) {
-  Vue.component(HeaderBar.name, HeaderBar);
+
+MHeaderBar.install = function(Vue) {
+  Vue.component(MHeaderBar.name, MHeaderBar);
 };
 
-export default HeaderBar;
+export default MHeaderBar;

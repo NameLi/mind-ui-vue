@@ -2,9 +2,9 @@
   <page title="粘滞按钮 StickyButton">
     <div class="sticky-fixed left-bottom">
       <m-sticky-button direction="rt">
-        <m-sticky-button-item icon="boy"></m-sticky-button-item>
-        <m-sticky-button-item icon="love"></m-sticky-button-item>
-        <m-sticky-button-item icon="girl"></m-sticky-button-item>
+        <m-sticky-button-item icon="boy" />
+        <m-sticky-button-item icon="love" />
+        <m-sticky-button-item icon="girl" />
       </m-sticky-button>
     </div>
 
@@ -16,22 +16,19 @@
         bgcolor="#67c23a"
         sub-bgcolor="#f56c6c"
       >
-        <m-sticky-button-item icon="boy"></m-sticky-button-item>
-        <m-sticky-button-item icon="love"></m-sticky-button-item>
-        <m-sticky-button-item
-          bgcolor="#e54d42"
-          icon="girl"
-        ></m-sticky-button-item>
-        <m-sticky-button-item icon="star-fill "></m-sticky-button-item>
-        <m-sticky-button-item icon="like-fill"></m-sticky-button-item>
+        <m-sticky-button-item icon="boy" />
+        <m-sticky-button-item icon="love" />
+        <m-sticky-button-item bgcolor="#e54d42" icon="girl" />
+        <m-sticky-button-item icon="star-fill " />
+        <m-sticky-button-item icon="like-fill" />
       </m-sticky-button>
     </div>
 
     <div class="sticky-fixed right-bottom">
       <m-sticky-button direction="lt">
-        <m-sticky-button-item icon="boy"></m-sticky-button-item>
-        <m-sticky-button-item icon="love"></m-sticky-button-item>
-        <m-sticky-button-item icon="girl"></m-sticky-button-item>
+        <m-sticky-button-item icon="boy" />
+        <m-sticky-button-item icon="love" />
+        <m-sticky-button-item icon="girl" />
       </m-sticky-button>
     </div>
   </page>
@@ -43,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sticky-fixed {
   position: fixed;
   bottom: 40px;

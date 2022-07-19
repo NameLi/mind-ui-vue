@@ -1,8 +1,8 @@
 <template>
-  <page title="宫格 Grid">
+  <page class="demo-page__grid" title="宫格 Grid">
     <demo-card title="标题">
       <div slot="header-suffix">
-        <m-icon name="category" @click="handleSwitchModel"></m-icon>
+        <m-icon name="category" @click="handleSwitchModel" />
       </div>
 
       <m-grid :column-count="columnCount" :border="borderSwitch">
@@ -15,7 +15,7 @@
           :url="item.url"
           :badge-dot="item.dot"
           :badge-value="item.badgeValue"
-        ></m-grid-item>
+        />
       </m-grid>
     </demo-card>
 
@@ -28,18 +28,18 @@
       <m-cell-group>
         <m-radio-group v-model="columnCount">
           <m-cell title="3列">
-            <m-radio :name="3"></m-radio>
+            <m-radio :name="3" />
           </m-cell>
           <m-cell title="4列">
-            <m-radio :name="4"></m-radio>
+            <m-radio :name="4" />
           </m-cell>
           <m-cell title="5列">
-            <m-radio :name="5"></m-radio>
+            <m-radio :name="5" />
           </m-cell>
         </m-radio-group>
 
         <m-cell title="边框">
-          <m-switch v-model="borderSwitch"></m-switch>
+          <m-switch v-model="borderSwitch" />
         </m-cell>
       </m-cell-group>
     </m-modal>
@@ -48,6 +48,7 @@
 
 <script>
 export default {
+  name: "demo-grid",
   data() {
     return {
       menus: [
@@ -97,15 +98,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.custom-content-class {
-  margin: 0 -32px;
-}
-/deep/ .custom-body-class {
-  padding: 0;
-}
-/deep/ .m-modal__body {
-  max-height: 50vh;
-}
-</style>

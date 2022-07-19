@@ -7,8 +7,8 @@
       :style="customStyle"
     >
       {{ content }}
-      <div class="close-btn" v-if="showClose">
-        <div class="btn" @click="onClose"></div>
+      <div class="m-message-close" v-if="showClose">
+        <div class="m-message-close__btn" @click="onClose"></div>
       </div>
     </div>
   </transition>
@@ -20,8 +20,8 @@ export default {
   data() {
     return {
       zIndex: 2001,
-      offsetTop: 0
-    }
+      offsetTop: 0,
+    };
   },
   methods: {
     onClose() {
@@ -30,13 +30,15 @@ export default {
   },
   computed: {
     customStyle() {
-      return ['z-index:' + this.zIndex, 'top:' + this.offsetTop + 'px'].join(";")
-    }
-  }
+      return ["z-index:" + this.zIndex, "top:" + this.offsetTop + "px"].join(
+        ";"
+      );
+    },
+  },
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
@@ -62,57 +64,57 @@ export default {
   text-align: center;
   background: $color-primary;
   box-sizing: border-box;
-}
 
-.m-message--primary {
-  background: $color-primary;
-}
+  .m-message--primary {
+    background: $color-primary;
+  }
 
-.m-message--success {
-  background: $color-success;
-}
+  .m-message--success {
+    background: $color-success;
+  }
 
-.m-message--warning {
-  background: $color-warning;
-}
+  .m-message--warning {
+    background: $color-warning;
+  }
 
-.m-message--error {
-  background: $color-danger;
-}
+  .m-message--error {
+    background: $color-danger;
+  }
 
-.close-btn {
-  position: absolute;
-  right: 10px;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-}
-.btn {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  color: #fff;
-  border: 10px;
-}
-.btn::before,
-.btn::after {
-  z-index: 1;
-  display: block;
-  content: "";
-  position: absolute;
-  left: 3px;
-  top: 50%;
-  color: #fff;
-  width: 32px;
-  height: 1px; /*no*/
-  background-color: currentColor;
-}
+  .m-message-close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+  .m-message-close__btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    border: 10px;
+  }
+  .m-message-close__btn::before,
+  .m-message-close__btn::after {
+    z-index: 1;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    color: #fff;
+    width: 32px;
+    height: 1px; /*no*/
+    background-color: currentColor;
+  }
 
-.btn::before {
-  transform: rotate(45deg);
-}
-.btn::after {
-  transform: rotate(-45deg);
+  .m-message-close__btn::before {
+    transform: rotate(45deg);
+  }
+  .m-message-close__btn::after {
+    transform: rotate(-45deg);
+  }
 }
 </style>

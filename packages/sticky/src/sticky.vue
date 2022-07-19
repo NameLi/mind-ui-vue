@@ -1,6 +1,6 @@
 <template>
-  <div class="m-sticky custom-class">
-    <slot></slot>
+  <div class="m-sticky">
+    <slot />
   </div>
 </template>
 
@@ -35,17 +35,14 @@ export default {
     };
   },
 
-  watch: {
-    // offsetTop(val) {
-    //   console.log(val)
-    //   this._updateAbsOffsetTop(val);
-    // },
-  },
-
   mounted() {
     window.addEventListener("scroll", this._updateScrollTopChange);
 
     this._updateAbsOffsetTop(this.offsetTop);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", this._updateScrollTopChange);
   },
 
   methods: {
@@ -93,10 +90,6 @@ export default {
         }
       }, 0);
     },
-  },
-
-  beforeDestroy() {
-    window.removeEventListener("scroll", this._updateScrollTopChange); //监听页面滚动事件
   },
 };
 </script>

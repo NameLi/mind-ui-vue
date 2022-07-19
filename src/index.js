@@ -38,9 +38,7 @@ import Timeline from "../packages/timeline";
 import TimelineItem from "../packages/timeline-item";
 import Toast from "../packages/toast";
 
-import "./assets/css/reset.css";
-import "./assets/font/iconfont.css";
-import "./assets/css/index.css";
+import "./assets/css/index.scss";
 
 const components = [
   Actionsheet,
@@ -84,8 +82,8 @@ const components = [
   Toast,
 ];
 
-const install = function(Vue, opts = {}) {
-  components.forEach((component) => {
+const install = function (Vue) {
+  components.map((component) => {
     Vue.component(component.name, component);
   });
 
@@ -99,11 +97,55 @@ if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
-const version = "0.1.4";
+const version = "1.0.0";
+
+export {
+  install,
+  version,
+  Actionsheet,
+  Badge,
+  Button,
+  Cell,
+  CellGroup,
+  Checkbox,
+  CheckboxGroup,
+  Collapse,
+  Divider,
+  Drawer,
+  Grid,
+  GridItem,
+  HeaderBar,
+  Icon,
+  Index,
+  IndexItem,
+  Loadmore,
+  Message,
+  Modal,
+  Navbar,
+  NavbarGroup,
+  NoticeBar,
+  Progress,
+  Radio,
+  RadioGroup,
+  Rate,
+  Slider,
+  Spinner,
+  Sticky,
+  StickyButton,
+  StickyButtonItem,
+  StickyItem,
+  Swipeout,
+  Switch,
+  Tag,
+  Timeline,
+  TimelineItem,
+  Toast,
+};
+
 
 export default {
-  version,
   install,
+  version,
   Actionsheet,
   Badge,
   Button,

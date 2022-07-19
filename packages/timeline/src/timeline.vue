@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <slot></slot>
+  <div class="m-timeline">
+    <slot />
   </div>
 </template>
 
@@ -29,5 +29,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 <template>
   <label
-    class="switch custom-class"
-    :class="{ 'switch--disabled': disabled, 'switch--on': checked }"
+    class="m-switch"
+    :class="{ 'm-switch--disabled': disabled, 'm-switch--on': checked }"
     :style="customStyle"
   >
     <input
@@ -9,10 +9,10 @@
       :disabled="disabled || loading"
       v-model="currentValue"
       @change="$emit('change', currentValue)"
-      class="switch-input"
+      class="m-switch__input"
     />
 
-    <div class="switch__node">
+    <div class="m-switch__node">
       <div
         v-if="loading"
         class="m-spinner__snake"
@@ -37,7 +37,7 @@ export default {
 
     loading: {
       type: Boolean,
-      value: false,
+      default: false,
     },
 
     activeColor: {
@@ -94,8 +94,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.switch {
+<style lang="scss">
+.m-switch {
   position: relative;
   display: inline-block;
   width: 96px;
@@ -106,61 +106,60 @@ export default {
   transition: background-color 0.3s;
   box-sizing: content-box;
   vertical-align: middle;
-}
 
-.switch-input {
-  display: none;
-  opacity: 0;
-}
-
-.switch__node {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  z-index: 1;
-  width: 48px;
-  height: 48px;
-  background-color: #fff;
-  box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.1),
-    0 6px 6px 0 rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s cubic-bezier(0.3, 1.05, 0.4, 1.05);
-}
-
-.m-spinner__snake {
-  display: inline-block;
-  width: 13PX;
-  height: 13PX;
-  border-radius: 50%;
-  border: 2PX solid;
-  border-top-color: transparent;
-  vertical-align: middle;
-  background: transparent;
-  animation: loading-snake 0.8s linear infinite;
-}
-
-@keyframes loading-snake {
-  0% {
-    transform: rotate(0);
+  &.m-switch--on {
+    background-color: #1989fa;
+    .m-switch__node {
+      transform: translateX(48px);
+    }
   }
 
-  100% {
-    transform: rotate(360deg);
+  &.m-switch--disabled {
+    opacity: 0.7;
   }
-}
 
-.switch--on {
-  background-color: #1989fa;
-}
+  .m-switch__input {
+    display: none;
+    opacity: 0;
+  }
 
-.switch--on .switch__node {
-  transform: translateX(48px);
-}
+  .m-switch__node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 4px 4px 0 rgba(0, 0, 0, 0.1),
+      0 6px 6px 0 rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.3, 1.05, 0.4, 1.05);
+  }
 
-.switch--disabled {
-  opacity: 0.7;
+  .m-spinner__snake {
+    display: inline-block;
+    width: 13px; /*no*/
+    height: 13px; /*no*/
+    border-radius: 50%;
+    border: 2px solid; /*no*/
+    border-top-color: transparent;
+    vertical-align: middle;
+    background: transparent;
+    animation: m-loading-snake 0.8s linear infinite;
+  }
+
+  @keyframes m-loading-snake {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 </style>

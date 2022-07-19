@@ -1,12 +1,13 @@
 <template>
   <div
-    class="m-index custom-class"
+    class="m-index"
     ref="wrap"
     :style="'height: ' + wrapH"
     @scroll="onScroll"
   >
-    <div>
-      <slot></slot>
+    <div class="m-index__container">
+      <!-- 索引内容 -->
+      <slot />
 
       <!-- 右侧索引 -->
       <div
@@ -19,7 +20,7 @@
       >
         <div
           class="m-index-fixed__item"
-          :class="currentName === item ? 'is-active' : ''"
+          :class="{ 'is-active': currentName === item }"
           v-for="(item, index) in indexData"
           :key="index"
           @click="onClick(index)"
@@ -168,7 +169,7 @@ export default {
       ev.preventDefault(); // 阻止页面滚动
 
       const touch = ev.touches[0] || {};
-      const pageY = touch.pageY;
+      const pageY = touch.clientY;
 
       let index = Math.floor((pageY - this.startTop) / this.indexHeight);
 
@@ -207,67 +208,66 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-index {
   width: 100%;
   height: 80vh;
   overflow: auto;
-}
 
-.m-index-line {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 1px; /*no*/
-  background-color: #f7f7f7;
-  top: 50%;
-}
+  .m-index-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px; /*no*/
+    background-color: #f7f7f7;
+    top: 50%;
+  }
 
-.m-index-content {
-  background: #fff;
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  padding: 0 20px;
-}
+  .m-index-content {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0 20px;
+  }
 
-.m-index-fixed {
-  position: fixed;
-  right: 0;
-  // top: 50%;
-  top: 50%;
-  z-index: 10;
-  padding-left: 10px;
-  transform: translateY(-50%);
-  user-select: none;
-}
+  .m-index-fixed {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 10;
+    padding-left: 10px;
+    transform: translateY(-50%);
+    user-select: none;
+  }
 
-.m-index-fixed__item {
-  display: block;
-  height: 36px;
-  min-width: 40px;
-  line-height: 36px;
-  text-align: center;
-  color: #777;
-  font-size: 24px;
-}
+  .m-index-fixed__item {
+    display: block;
+    height: 36px;
+    min-width: 40px;
+    line-height: 36px;
+    text-align: center;
+    color: #777;
+    font-size: 24px;
+    &.is-active {
+      color: $color-primary;
+    }
+  }
 
-.m-index-tooltip {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 48px;
-  border-radius: 6px;
-  width: 160px;
-  height: 160px;
-  line-height: 160px;
-  text-align: center;
-}
-
-.m-index-fixed__item.is-active {
-  color: $color-primary;
+  .m-index-tooltip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 48px;
+    border-radius: 6px;
+    width: 160px;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+  }
 }
 </style>

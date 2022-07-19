@@ -1,5 +1,5 @@
 <template>
-  <page>
+  <page class="demo-page__header">
     <m-header-bar
       :back="back"
       :back-color="backColor"
@@ -114,23 +114,25 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/deep/ .m-button {
-  margin: 10px 0;
-}
+<style lang="scss">
+.demo-page__header {
+  .m-button {
+    margin: 10px 0;
+  }
 
-.custom-title {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
+  .custom-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 
-.title {
-  font-size: 30px;
-}
+  .title {
+    font-size: 30px;
+  }
 
-.subtitle {
-  font-size: 24px;
-  color: #aaa;
+  .subtitle {
+    font-size: 24px;
+    color: #aaa;
+  }
 }
 </style>
