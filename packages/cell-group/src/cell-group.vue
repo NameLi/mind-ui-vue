@@ -1,7 +1,7 @@
 <template>
-  <div class="m-cell__group" :class="{ 'm-cell__group--card': card }">
-    <div v-if="title" class="m-cell__group__header">
-      <div class="m-cell__group__title">{{ title }}</div>
+  <div class="m-cell-group" :class="{ 'm-cell-group--card': card }">
+    <div v-if="title" class="m-cell-group__header">
+      <div class="m-cell-group__title">{{ title }}</div>
       <slot name="group-suffix" />
     </div>
 
@@ -52,18 +52,18 @@ export default {
 </script>
 
 <style lang="scss">
-.m-cell__group {
+.m-cell-group {
   position: relative;
   margin: 0;
   background: #fff;
   transition: margin 0.2s;
-  &.m-cell__group--card {
+  &.m-cell-group--card {
     margin: 32px;
     border-radius: 12px;
     overflow: hidden;
   }
 
-  .m-cell__group__header {
+  .m-cell-group__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,7 +75,7 @@ export default {
     background: #fcfcfc;
   }
 
-  .m-cell__group__title {
+  .m-cell-group__title {
     flex: 1;
     width: 0;
     overflow: hidden;

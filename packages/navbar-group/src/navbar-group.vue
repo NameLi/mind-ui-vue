@@ -1,8 +1,8 @@
 <template>
-  <div class="tabs__wrap" ref="tabs__wrap">
-    <div class="tabs__scroll" ref="tabs__scroll">
-      <div class="tabs__nav">
-        <div class="tabs__line" v-if="lineHeight" :style="styles"></div>
+  <div class="m-tabs__wrap" ref="tabs__wrap">
+    <div class="m-tabs__scroll" ref="tabs__scroll">
+      <div class="m-tabs__nav">
+        <div class="m-tabs__line" v-if="lineHeight" :style="styles"></div>
         <slot />
       </div>
     </div>
@@ -169,34 +169,34 @@ export default {
 </script>
 
 <style lang="scss">
-.tabs__wrap {
+.m-tabs__wrap {
   justify-content: center;
   height: 88px;
   overflow: hidden;
-}
 
-.tabs__scroll {
-  // height: 88px;
-  // padding-bottom: 20px;
-  white-space: nowrap;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  .m-tabs__scroll {
+    // height: 88px;
+    // padding-bottom: 20px;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-.tabs__nav {
-  position: relative;
-  display: flex;
-  white-space: nowrap;
-}
+  .m-tabs__nav {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+  }
 
-.tabs__line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  height: 3px;
-  border-radius: 12px;
-  background-color: $color-primary;
-  transition-duration: 0.3s;
+  .m-tabs__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 3px;
+    border-radius: 12px;
+    background-color: $color-primary;
+    transition-duration: 0.3s;
+  }
 }
 </style>

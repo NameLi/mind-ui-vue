@@ -6,13 +6,11 @@
 本组件库仅作为个人学习与项目使用，未经过严格测试，请勿在生产环境环境中使用。
 
 ## 演示
-[演示地址](https://mind-ui.ixook.com/vue)
+[演示地址](https://mind-ui-vue.ixook.com)
 
 
 ## 文档
-[参考文档](https://mind-ui.ixook.com/docs)
-
-**该文档为 `Mind-UI` 微信小程序组件库的使用文档，仅可作为参考，如有多人需要，我会抽时间补上。**
+[使用文档](https://mind-ui.ixook.com/docs)
 
 ## 安装
 ```shell

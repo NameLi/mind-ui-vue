@@ -1,14 +1,14 @@
 <template>
   <div
-    class="tab-item"
-    :class="{ 'tab-item--is-active': isActive }"
+    class="m-tab-item"
+    :class="{ 'm-tab-item--is-active': isActive }"
     ref="tabItem"
     @click="onClick"
   >
-    <div class="tab-item__content">
+    <div class="m-tab-item__content">
       <div
         ref="tabItem__text"
-        class="tab-item__text"
+        class="m-tab-item__text"
         :style="activeColor ? 'color:' + activeColor : ''"
       >
         {{ title }}
@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tab-item {
+.m-tab-item {
   position: relative;
   flex: 1;
   box-sizing: border-box;
@@ -99,16 +99,16 @@ export default {
   line-height: 88px;
   font-size: 28px;
   -webkit-tap-highlight-color: transparent;
-  .tab-item__content {
+  .m-tab-item__content {
     white-space: nowrap;
     margin: 0 20px;
   }
 
-  .tab-item__text {
+  .m-tab-item__text {
     display: inline-block;
   }
 
-  .tab-item--is-active {
+  .m-tab-item--is-active {
     font-weight: 500;
     color: #323233;
   }
