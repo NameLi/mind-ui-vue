@@ -6,7 +6,7 @@ module.exports = {
       filename: "index.html",
     },
   },
-  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
+  publicPath: "/",
   lintOnSave: false,
   devServer: {
     open: true,
@@ -38,10 +38,6 @@ module.exports = {
     sourceMap: false,
     requireModuleExtension: true,
     loaderOptions: {
-      // css: {
-      //   // 这里的选项会传递给 css-loader
-      //   importLoaders: 1,
-      // },
       sass: {
         prependData: `@import "@/assets/css/variables.scss";`,
         sassOptions: { outputStyle: 'expanded' }
