@@ -2,21 +2,21 @@
 
 > Mobile UI for **Vue 2.6+**
 
-## 温馨提示
-该组件库是个人为 [慕影网](https://h5.ixook.com) 项目所开发的配套组件库，未经过严格测试，不建议在生产环境中使用。  
+### 温馨提示
+该组件库是个人为 [慕影网](https://github.com/NameLi/muying-h5) 项目所开发的配套组件库，未经过严格测试，不建议在生产环境中使用。  
 
-## 在线预览
+### 在线预览
 组件预览地址：[https://mind-ui-vue.ixook.com](https://mind-ui-vue.ixook.com)
 
-## 使用文档
-组件使用文档[https://mind-ui-vue.ixook.com/docs](https://mind-ui-vue.ixook.com/docs)
+### 使用文档
+组件使用文档：[https://mind-ui-vue.ixook.com/docs](https://mind-ui-vue.ixook.com/docs)
 
-## 组件安装
+### 安装
 ```shell
 npm i mind-ui-vue -S
 ```
 
-## 使用
+### 使用
 全量引入
 
 ```javascript
@@ -33,10 +33,10 @@ Vue.use(Button);
 ```
 
 
-## 本地启动
+### 本地启动
 ```shell
 npm run serve
 ```
 
-## License
+### License
 MIT
