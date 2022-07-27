@@ -65,19 +65,19 @@ export default {
   background: $color-primary;
   box-sizing: border-box;
 
-  .m-message--primary {
+  &.m-message--primary {
     background: $color-primary;
   }
 
-  .m-message--success {
+  &.m-message--success {
     background: $color-success;
   }
 
-  .m-message--warning {
+  &.m-message--warning {
     background: $color-warning;
   }
 
-  .m-message--error {
+  &.m-message--error {
     background: $color-danger;
   }
 
