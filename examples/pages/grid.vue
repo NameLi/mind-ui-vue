@@ -64,6 +64,12 @@ export default {
           iconColor: "#EE5C42",
         },
         {
+          icon: "news",
+          text: "文字",
+          badgeValue: 'new',
+          iconColor: "#e54d42",
+        },
+        {
           icon: "girl",
           text: "文字",
           badgeValue: 100,

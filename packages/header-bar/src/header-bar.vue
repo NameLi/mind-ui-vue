@@ -1,8 +1,8 @@
 <template>
-  <div class="m-header-bar" :style="bgColorStyle">
-    <div class="m-header">
+  <div class="m-header-bar">
+    <div class="m-header" :style="bgColorStyle">
       <div class="m-header-container">
-        <div v-if="back" class="m-header-back" @click="$router.back()">
+        <div v-if="back" class="m-header-back" @click="pathGo()">
           <i class="back-icon" :style="'background: ' + backColor"></i>
         </div>
 
@@ -31,6 +31,7 @@
 <script>
 export default {
   name: "m-header-bar",
+  
   props: {
     loading: {
       type: Boolean,
@@ -66,7 +67,7 @@ export default {
 
     delta: {
       type: Number,
-      default: 1,
+      default: -1,
     },
 
     // 是否显示返回按钮，默认跟随平台，ios居中对其，Android左对齐
@@ -115,9 +116,15 @@ export default {
   },
 
   mounted() {
-    if (!!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
+    if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
       this.isIOS = true;
     }
+  },
+
+  methods: {
+    pathGo() {
+      this.$router.go(this.delta);
+    },
   },
 };
 </script>
@@ -129,6 +136,7 @@ export default {
   height: 56px; /*no*/
 
   .m-header {
+    z-index: 1999;
     position: fixed;
     width: 100%;
     left: 0;
@@ -138,6 +146,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #fff;
   }
 
   .m-header-container {
@@ -160,11 +169,9 @@ export default {
   .m-header .m-header-back .back-icon {
     width: 32px;
     height: 32px;
-    background: #000;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%2019.438L8.955%2020.5l-7.666-7.79a1.02%201.02%200%20010-1.42L8.955%203.5%2010%204.563%202.682%2012%2010%2019.438z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E")
-      no-repeat 50% 50%;
-    mask: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10%2019.438L8.955%2020.5l-7.666-7.79a1.02%201.02%200%20010-1.42L8.955%203.5%2010%204.563%202.682%2012%2010%2019.438z%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E")
-      no-repeat 50% 50%;
+    background-color: #000;
+    -webkit-mask: url("./back.svg") no-repeat 50% 50%;
+    mask: url("./back.svg") no-repeat 50% 50%;
     -webkit-mask-size: cover;
     mask-size: cover;
   }

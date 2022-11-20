@@ -1,5 +1,5 @@
 <template>
-  <div class="m-timeline-item" :class="{ 'is-last': isLast }">
+  <div class="m-timeline-item">
     <div class="m-timeline-item__time">
       <m-icon v-if="icon" :name="icon" :color="color" />
       <span v-else :style="color ? 'color:' + color : ''"> {{ text }}</span>
@@ -29,11 +29,6 @@ export default {
       type: String,
     },
   },
-  data() {
-    return {
-      isLast: false,
-    };
-  },
 };
 </script>
 
@@ -53,15 +48,11 @@ export default {
       display: block;
       position: absolute;
       top: 44px;
-      width: 1px; /*no*/
+      width: 1PX; /*no*/
       bottom: 10px;
       content: " ";
       background: #ccc;
     }
-  }
-
-  .is-last .m-timeline-item__time::after {
-    display: none;
   }
 
   .m-timeline-item__content {

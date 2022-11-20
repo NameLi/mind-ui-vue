@@ -19,7 +19,7 @@ export default {
   props: {
     value: {
       type: [Number, String],
-      default: "",
+      default: null,
     },
     max: {
       type: [Number, String],
@@ -54,12 +54,18 @@ export default {
   },
 
   watch: {
-    value() {
-      this._getValue();
+    value: {
+      handler() {
+        this._getValue();
+      },
+      immediate: true,
     },
   },
+
   methods: {
     _getValue() {
+      if (this.isDot) return;
+
       const { value, max } = this;
 
       let _value = "";
@@ -78,8 +84,9 @@ export default {
 <style lang="scss">
 .m-badge {
   position: relative;
-  display: inline-block;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   .m-badge__count {
     z-index: 1;
     position: absolute;
@@ -99,12 +106,10 @@ export default {
     white-space: nowrap;
     box-shadow: 0 0 0 4px #fff;
     box-sizing: content-box;
-  }
-
-  .is-static {
-    display: inline-block;
-    position: static;
-    transform: translateX(0);
+    &.is-static {
+      position: static;
+      transform: translate(0, 0);
+    }
   }
 
   .m-badge__dot {

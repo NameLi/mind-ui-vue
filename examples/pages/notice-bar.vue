@@ -48,7 +48,9 @@ export default {
 
 <style lang="scss">
 .demo-page__notice {
-  margin: 0 -32px;
+  .demo-card__content {
+    margin: 0 -32px;
+  }
   .split-line {
     height: 30px;
   }

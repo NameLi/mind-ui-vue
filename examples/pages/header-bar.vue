@@ -37,6 +37,8 @@
       <m-button @click="handleCuntomTitle">自定义title区域内容</m-button>
 
       <m-button @click="handleReset" type="primary" plain>重置</m-button>
+      
+      <div style="height: 60vh"></div>
     </div>
   </page>
 </template>

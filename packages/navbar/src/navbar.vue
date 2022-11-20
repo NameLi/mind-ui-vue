@@ -13,11 +13,11 @@
       >
         {{ title }}
         <m-badge
-          v-if="value"
-          custom-class="badge-custom"
-          :value="value"
+          v-if="isShowBadge"
+          class="badge-custom"
+          :value="count"
           static
-        ></m-badge>
+        />
       </div>
     </div>
   </div>
@@ -40,13 +40,16 @@ export default {
       type: String,
       default: "",
     },
-    value: {
+    count: {
       type: [Number, String],
       default: "",
     },
   },
 
   computed: {
+    isShowBadge() {
+      return this.count || this.count !== undefined;
+    },
     isActive() {
       return this.$parent.activeTabName === this.name;
     },
@@ -64,6 +67,8 @@ export default {
   methods: {
     onClick(ev = null) {
       if (this.$parent.disabled) return;
+
+      if (this.isActive) return;
 
       this.$emit("click", this.name);
 
@@ -94,6 +99,7 @@ export default {
   padding: 0 5px;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   color: #7d7e80;
   line-height: 88px;
@@ -105,7 +111,8 @@ export default {
   }
 
   .m-tab-item__text {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
   }
 
   .m-tab-item--is-active {
@@ -114,7 +121,6 @@ export default {
   }
 
   .badge-custom {
-    vertical-align: text-top;
     margin-left: 6px;
   }
 }

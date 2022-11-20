@@ -83,8 +83,7 @@ export default {
       ).offsetWidth;
       const noticeW = document.querySelector(".m-notice-bar").offsetWidth;
 
-      const absContainW = containW * (750 / wrapW); // 内容宽度（折合为rpx）
-      // const absNoticeW = noticeW * (750 / wrapW);
+      const absContainW = containW * (750 / wrapW); // 内容宽度
 
       // 内容宽度小于内容区域宽度，则不滚动
       if (containW <= noticeW) {

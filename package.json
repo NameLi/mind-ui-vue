@@ -1,6 +1,6 @@
 {
   "name": "mind-ui-vue",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": "bingtangxueli",
   "description": "Mobile UI for vue.js",
   "main": "lib/index.umd.min.js",
@@ -24,7 +24,8 @@
     "lib": "vue-cli-service build --target lib --name index --dest lib src/index.js"
   },
   "dependencies": {
-    "lib-flexible": "^0.3.2"
+    "lib-flexible": "^0.3.2",
+    "swiper": "^8.4.4"
   },
   "devDependencies": {
     "vue": "^2.6.11",

@@ -12,7 +12,7 @@
 
     <div
       class="m-swipeout__button-group"
-      :style="buttonStyles"
+      :style="buttonStyle"
       ref="swipeout_button"
     >
       <slot name="button" />
@@ -36,16 +36,8 @@ export default {
       bounceTime: 0.5, // 回弹动画默认时长，单位秒
       getStyle: "", // 设置滑动位置的样式
       btnGroupWidth: 0,
+      buttonStyle: "",
     };
-  },
-
-  computed: {
-    buttonStyles() {
-      if (this.btnGroupWidth === 0) return "";
-      return `transform: translate3d(${
-        this.btnGroupWidth + this.offset
-      }px, 0, 0);`;
-    },
   },
 
   mounted() {
@@ -96,6 +88,7 @@ export default {
     // 设置滑块位置
     swipeMove(offset = 0, sec = 0) {
       this.offset = offset;
+      this.sec = sec;
 
       const transform = `transform: translate3d(${offset}px, 0, 0);`;
       const transition = this.isMoving
@@ -103,6 +96,10 @@ export default {
         : `transition: ${sec}s cubic-bezier(0.18, 0.89, 0.32, 1);`;
 
       const getStyle = transform + transition;
+
+      this.buttonStyle =
+        transition +
+        `transform: translate3d(${this.btnGroupWidth + this.offset}px, 0, 0);`;
 
       this.getStyle = getStyle;
     },
@@ -271,6 +268,7 @@ export default {
     right: 0;
     top: 0;
     height: 100%;
+    transform: translateX(100%);
     display: block;
   }
 

@@ -7,7 +7,7 @@
       />
     </div>
     <div class="demo-home__title">Mind UI Vue</div>
-    <div class="demo-home__desc">轻量、高效的 Vue 移动端组件库</div>
+    <div class="demo-home__desc">轻量、高效的 Vue2.x 移动端组件库</div>
 
     <m-cell-group title="基础组件" border card>
       <m-cell title="Color" url="/color" />

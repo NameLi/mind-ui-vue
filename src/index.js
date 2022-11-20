@@ -97,7 +97,7 @@ if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
-const version = "1.0.3";
+const version = "1.1.0";
 
 export {
   install,

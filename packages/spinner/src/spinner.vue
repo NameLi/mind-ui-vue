@@ -32,11 +32,6 @@
 export default {
   name: "m-spinner",
   props: {
-    // small || default || large
-    size: {
-      type: String,
-      default: "default",
-    },
     type: {
       type: String,
       default: "snake",

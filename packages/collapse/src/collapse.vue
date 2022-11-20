@@ -9,22 +9,29 @@
 <script>
 export default {
   name: "m-collapse",
+
   props: {
     duration: {
       type: [Number, String],
       default: 300,
     },
-    visible: {
+    value: {
       type: Boolean,
       default: false,
     },
+    visible: {
+      type: Boolean,
+      default: undefined,
+    },
   },
+
   data() {
     return {
       contentHeight: 0, // 内容区域高度
       isReady: false,
     };
   },
+
   watch: {
     visible(val) {
       if (val && this.isReady) {
@@ -33,7 +40,15 @@ export default {
         this.contentHeight = 0;
       }
     },
+    value(val) {
+      if (val && this.isReady) {
+        this.getContainerHeight();
+      } else {
+        this.contentHeight = 0;
+      }
+    },
   },
+
   computed: {
     styles() {
       return [
@@ -45,7 +60,7 @@ export default {
   mounted() {
     this.isReady = true;
 
-    if (this.visible) {
+    if (this.value || this.visible) {
       this.getContainerHeight();
     }
   },
@@ -58,7 +73,10 @@ export default {
     },
 
     onTransitionEnd() {
-      this.$emit("on-change", this.visible);
+      const value = this.visible === undefined ? this.value : this.visible;
+
+      this.$emit("input", value);
+      this.$emit("on-change", value);
     },
   },
 };

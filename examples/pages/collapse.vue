@@ -19,7 +19,7 @@
     <div class="button-group">
       <m-button @click="handleSwitch2">默认折叠</m-button>
     </div>
-    <m-collapse :visible="switch2">
+    <m-collapse v-model="switch2">
       <div class="demo-card">
         <div>
           <p>《沁园春·雪》</p>
@@ -38,7 +38,7 @@
     <div class="button-group">
       <m-button @click="handleSwitch3">默认折叠(动画时长100ms)</m-button>
     </div>
-    <m-collapse :visible="switch3" duration="150">
+    <m-collapse v-model="switch3" duration="150">
       <div class="demo-card">
         <div>
           <p>《沁园春·雪》</p>

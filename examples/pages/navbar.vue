@@ -1,7 +1,7 @@
 <template>
   <page class="demo-page__navbar" title="选项卡 Navbar">
     <demo-card title="基础用法">
-      <m-navbar-group @click="onClick" @change="onChange">
+      <m-navbar-group v-model="activeName1" @click="onClick" @change="onChange">
         <m-navbar title="标签1" name="tab1" />
         <m-navbar title="标签2" name="tab2" />
         <m-navbar title="标签3" name="tab3" />
@@ -10,10 +10,10 @@
 
     <demo-card title="自定义">
       <m-navbar-group
+        v-model="activeName1"
         active-color="red"
         line-color="red"
         line-width="30"
-        @click="onClick"
         @change="onChange"
       >
         <m-navbar title="标签1" name="tab1" />
@@ -22,19 +22,20 @@
       </m-navbar-group>
     </demo-card>
 
-    <demo-card title="多菜单 异步">
-      <m-navbar-group @click="onClick" active-name="tab4" @change="onChange">
+    <demo-card title="多菜单 动态数据渲染">
+      <m-navbar-group v-model="activeName2" @change="onChange">
         <m-navbar
           v-for="n in navbars"
           :title="n.title"
           :name="n.name"
           :key="n.name"
+          @click="onClick"
         />
       </m-navbar-group>
     </demo-card>
 
     <demo-card title="设置默认选中项">
-      <m-navbar-group active-name="tab4" @click="onClick" @change="onChange">
+      <m-navbar-group v-model="activeName3" @change="onChange">
         <m-navbar title="标签1" name="tab1" />
         <m-navbar title="标签2" name="tab2" />
         <m-navbar title="标签3" name="tab3" />
@@ -46,11 +47,11 @@
     </demo-card>
 
     <demo-card title="徽章统计">
-      <m-navbar-group @click="onClick" @change="onChange">
+      <m-navbar-group v-model="activeName4" @change="onChange">
         <m-navbar title="标签1" name="tab1" />
-        <m-navbar title="标签2" name="tab2" value="8" />
+        <m-navbar title="标签2" name="tab2" count="8" />
         <m-navbar title="标签3" name="tab3" />
-        <m-navbar title="标签4" name="tab4" value="100" />
+        <m-navbar title="标签4" name="tab4" count="100" />
         <m-navbar title="标签5" name="tab5" />
       </m-navbar-group>
     </demo-card>
@@ -64,6 +65,10 @@ export default {
   data() {
     return {
       navbars: [],
+      activeName1: "tab1",
+      activeName2: "tab2",
+      activeName3: "tab3",
+      activeName4: "tab4",
     };
   },
 
@@ -82,11 +87,11 @@ export default {
 
   methods: {
     onClick(detail) {
-      console.log(detail);
+      console.log("click:", detail);
     },
 
     onChange(detail) {
-      console.log(detail);
+      console.log("change:", detail);
     },
   },
 };
@@ -94,7 +99,9 @@ export default {
 
 <style lang="scss">
 .demo-page__navbar {
-  margin: 0 -32px;
+  .demo-card__content {
+    margin: 0 -32px;
+  }
   .custom-group {
     background: #fff !important;
   }

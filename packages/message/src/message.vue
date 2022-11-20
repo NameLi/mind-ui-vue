@@ -52,33 +52,35 @@ export default {
 .m-message {
   display: block;
   z-index: 2000;
+  margin-top: 22px;
   position: fixed;
   top: 0;
-  left: 0;
-  padding: 12px 80px;
-  width: 100%;
-  min-height: 36px;
-  line-height: 36px;
+  left: 32px;
+	right: 32px;
+	padding: 15px 80px;
+	min-height: 66px;
+	line-height: 36px;
   color: #fff;
   font-size: 28px;
+  border-radius: 4px;
   text-align: center;
-  background: $color-primary;
+  background-color: $color-primary;
   box-sizing: border-box;
 
   &.m-message--primary {
-    background: $color-primary;
+    background-color: $color-primary;
   }
 
   &.m-message--success {
-    background: $color-success;
+    background-color: $color-success;
   }
 
   &.m-message--warning {
-    background: $color-warning;
+    background-color: $color-warning;
   }
 
   &.m-message--error {
-    background: $color-danger;
+    background-color: $color-danger;
   }
 
   .m-message-close {

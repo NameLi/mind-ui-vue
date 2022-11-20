@@ -52,7 +52,7 @@ export default {
         if (!isNaN(Number(value))) {
           return true;
         } else {
-          console.warn("value is no a number");
+          console.warn("value is not a number");
           return false;
         }
       },

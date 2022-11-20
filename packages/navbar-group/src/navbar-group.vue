@@ -13,6 +13,11 @@
 export default {
   name: "m-navbar-group",
   props: {
+    value: {
+      type: String,
+      default: "",
+    },
+
     activeName: {
       type: [Number, String],
       default: "",
@@ -43,6 +48,7 @@ export default {
       default: 3,
     },
   },
+
   data() {
     return {
       baseLeft: 0,
@@ -50,7 +56,7 @@ export default {
       lineLeft: 0,
       activeLineWidth: 0,
       tabWidth: 0,
-      activeTabName: "",
+      activeTabName: null,
       timer: null,
       children: [],
       initTimer: null,
@@ -75,6 +81,12 @@ export default {
       }
 
       return styles.join(";");
+    },
+  },
+
+  watch: {
+    value() {
+      this.initChildrenStyle();
     },
   },
 
@@ -103,9 +115,11 @@ export default {
 
       this.tabWidth = this.$refs.tabs__wrap.offsetWidth; // 选项卡总宽度
 
-      if (this.activeName) {
+      const value = this.value || this.activeName;
+
+      if (value) {
         children.forEach((child) => {
-          if (child.name === this.activeName) {
+          if (child.name === value) {
             child.onClick();
           }
         });
@@ -117,7 +131,10 @@ export default {
     updateScrollPositon(left, domWidth, lineWidth, name) {
       if (this.activeTabName === name) return;
 
-      if (this.timer) return;
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
 
       const oldScrollLeft = this.$refs.tabs__scroll.scrollLeft;
 
@@ -162,6 +179,7 @@ export default {
 
       this.activeTabName = name;
 
+      this.$emit("input", name);
       this.$emit("change", name);
     },
   },
