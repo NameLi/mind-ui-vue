@@ -31,7 +31,6 @@
     <m-cell-group title="视图" border card>
       <m-cell title="Tag" url="/tag" />
       <m-cell title="Badge" url="/badge" />
-      <m-cell title="Swiper" url="/swiper" />
       <m-cell title="Collapse" url="/collapse" />
       <m-cell title="Progress" url="/progress" />
       <m-cell title="Divider" url="/divider" />
@@ -96,14 +95,14 @@ export default {
     text-align: center;
     font-size: 42px;
     padding-bottom: 20px;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
 
   .demo-home__desc {
     text-align: center;
     font-size: 28px;
     padding-bottom: 20px;
-    color: $color-text-regular;
+    color: var(--color-text-regular);
   }
 }
 </style>

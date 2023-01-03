@@ -108,7 +108,7 @@ export default {
   vertical-align: middle;
 
   &.m-switch--on {
-    background-color: #1989fa;
+    background-color: var(--color-theme);
     .m-switch__node {
       transform: translateX(48px);
     }
@@ -142,13 +142,13 @@ export default {
 
   .m-spinner__snake {
     display: inline-block;
-    width: 13px; /*no*/
-    height: 13px; /*no*/
+    width: 13PX; /*no*/
+    height: 13PX; /*no*/
     border-radius: 50%;
     border: 2px solid; /*no*/
     border-top-color: transparent;
     vertical-align: middle;
-    background: transparent;
+    background-color: transparent;
     animation: m-loading-snake 0.8s linear infinite;
   }
 

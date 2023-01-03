@@ -82,7 +82,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $color-primary;
+  color: var(--color-primary);
 
   /* snake */
   .m-spinner__snake {
@@ -93,7 +93,7 @@ export default {
     border: 2px solid;
     border-top-color: transparent;
     vertical-align: middle;
-    background: transparent;
+    background-color: transparent;
     animation: loading-snake 0.8s linear infinite;
   }
 
@@ -170,7 +170,7 @@ export default {
     content: " ";
     display: block;
     margin: 0 auto;
-    background: currentColor;
+    background-color: currentColor;
   }
 
   @keyframes loading-circle {

@@ -113,7 +113,7 @@ export default {
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    background: #eee;
+    background-color: var(--color-text-secondary);
   }
 
   .m-sticky-item__is-fixed {

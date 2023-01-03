@@ -100,20 +100,20 @@ export default {
     left: 0;
     height: 100%;
     border-radius: inherit;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
 
   .m-progress__portion--primary {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
   .m-progress__portion--success {
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
   .m-progress__portion--warning {
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
   .m-progress__portion--danger {
-    background-color: $color-danger;
+    background-color: var(--color-danger);
   }
 
   .m-progress__point {
@@ -130,20 +130,20 @@ export default {
     color: #fff;
     padding: 0 8px;
     font-size: 20px;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
 
   .m-progress__point--primary {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
   .m-progress__point--success {
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
   .m-progress__point--warning {
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
   .m-progress__point--danger {
-    background-color: $color-danger;
+    background-color: var(--color-danger);
   }
 }
 </style>

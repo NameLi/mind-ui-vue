@@ -33,15 +33,15 @@ module.exports = {
         return options;
       });
   },
-  css: {
-    extract: true,
-    sourceMap: false,
-    requireModuleExtension: true,
-    loaderOptions: {
-      sass: {
-        prependData: `@import "@/assets/css/variables.scss";`,
-        sassOptions: { outputStyle: 'expanded' }
-      },
-    },
-  },
+  // css: {
+  //   extract: true,
+  //   sourceMap: false,
+  //   requireModuleExtension: true,
+  //   loaderOptions: {
+  //     sass: {
+  //       prependData: `@import "@/assets/style/variables.scss";`,
+  //       sassOptions: { outputStyle: 'expanded' }
+  //     },
+  //   },
+  // },
 };

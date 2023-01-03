@@ -213,7 +213,7 @@ export default {
     z-index: 1;
     height: 3px;
     border-radius: 12px;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     transition-duration: 0.3s;
   }
 }

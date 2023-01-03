@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "lib-flexible";
-import "./assets/css/index.css";
+import "./assets/style/index.css";
 
 import MindUI from '../src/index.js'
 Vue.use(MindUI);
@@ -15,7 +15,6 @@ Vue.use(DemoHeader);
 
 import Page from "./components/page/index";
 Vue.use(Page);
-
 
 import { preventScroll } from './util/index'
 Vue.prototype.$preventScroll = preventScroll;

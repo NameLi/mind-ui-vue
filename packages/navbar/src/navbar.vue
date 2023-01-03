@@ -101,7 +101,7 @@ export default {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #7d7e80;
+  color: var(--color-text-regular);
   line-height: 88px;
   font-size: 28px;
   -webkit-tap-highlight-color: transparent;
@@ -117,7 +117,7 @@ export default {
 
   .m-tab-item--is-active {
     font-weight: 500;
-    color: #323233;
+    color: var(--color-text-primary);
   }
 
   .badge-custom {

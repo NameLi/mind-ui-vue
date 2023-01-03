@@ -66,7 +66,7 @@ export default {
     line-height: 36px;
     text-align: center;
     border-radius: 100px;
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
 }
 </style>

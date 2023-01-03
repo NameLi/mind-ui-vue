@@ -116,7 +116,7 @@ export default {
     bottom: 0;
     opacity: 1;
     visibility: visible;
-    background: $color-mask;
+    background-color: var(--color-mask);
     transition: all 0.2s ease-in-out;
     &.is-hidden {
       opacity: 0;
@@ -132,7 +132,7 @@ export default {
     right: 0;
     bottom: 0;
     visibility: visible;
-    background: #fff;
+    background-color: #fff;
     transform: translate3d(0, 0, 0);
     transform-origin: center;
     transition: all 0.2s ease-in-out;
@@ -146,11 +146,11 @@ export default {
   }
 
   .m-sheet__header {
-    background: #fff;
+    background-color: #fff;
     text-align: center;
     position: relative;
     font-size: 24px;
-    color: #80848f;
+    color: var(--color-text-primary);
   }
 
   .m-sheet__item {
@@ -167,7 +167,7 @@ export default {
     margin-right: 20px;
     width: 24px;
     height: 24px;
-    background: 0 0;
+    background-position: 0 0;
     border-radius: 50%;
     border: 4px solid #e5e5e5;
     border-left-color: #666;
@@ -204,7 +204,7 @@ export default {
     font-size: 32px;
     border: 0;
     border-radius: 0;
-    color: #495060;
+    color: var(--color-text-regular);
     overflow: visible;
     background-color: #fff;
     transition: opacity 0.16s, background-color 0.16s;

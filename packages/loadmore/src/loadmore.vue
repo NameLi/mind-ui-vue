@@ -42,23 +42,23 @@ export default {
 .m-loadmore {
   height: 60px;
   line-height: 60px;
-  color: $color-text-secondary;
+  color: var(--color-text-secondary);
   text-align: center;
   font-size: 28px;
 
   .m-loadmore__end {
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
   }
 
   .m-loadmore__snake {
     display: inline-block;
-    width: 10px; /*no*/
-    height: 10px; /*no*/
+    width: 10PX; /*no*/
+    height: 10PX; /*no*/
     border-radius: 50%;
-    border: 2px solid currentColor; /*no*/
+    border: 2PX solid currentColor; /*no*/
     border-left-color: transparent;
     vertical-align: middle;
-    background: transparent;
+    background-color: transparent;
     animation: m-loading-snake 0.8s linear infinite;
   }
 

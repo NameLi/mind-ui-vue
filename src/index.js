@@ -38,7 +38,7 @@ import Timeline from "../packages/timeline";
 import TimelineItem from "../packages/timeline-item";
 import Toast from "../packages/toast";
 
-import "./assets/css/index.scss";
+import "./assets/style/index.scss";
 
 const components = [
   Actionsheet,
@@ -97,7 +97,7 @@ if (typeof window !== "undefined" && window.Vue) {
   install(window.Vue);
 }
 
-const version = "1.1.0";
+const version = "1.2.0";
 
 export {
   install,

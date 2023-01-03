@@ -218,13 +218,13 @@ export default {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 1px; /*no*/
-    background-color: #f7f7f7;
+    height: 1PX; /*no*/
+    background-color: var(--color-border);
     top: 50%;
   }
 
   .m-index-content {
-    background: #fff;
+    background-color: #fff;
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -248,10 +248,10 @@ export default {
     min-width: 40px;
     line-height: 36px;
     text-align: center;
-    color: #777;
+    color: var(--color-text-regular);
     font-size: 24px;
     &.is-active {
-      color: $color-primary;
+      color: var(--color-primary);
     }
   }
 
@@ -260,7 +260,7 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
-    background: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-mask);
     color: #fff;
     font-size: 48px;
     border-radius: 6px;

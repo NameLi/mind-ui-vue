@@ -103,6 +103,6 @@ export default {
 
 .item {
   height: 400px;
-  border-bottom: 1px solid #eee; /*no*/
+  border-bottom: 1PX solid #eee; /*no*/
 }
 </style>

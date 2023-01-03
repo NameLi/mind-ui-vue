@@ -64,23 +64,23 @@ export default {
   font-size: 28px;
   border-radius: 4px;
   text-align: center;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   box-sizing: border-box;
 
   &.m-message--primary {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
 
   &.m-message--success {
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
 
   &.m-message--warning {
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
 
   &.m-message--error {
-    background-color: $color-danger;
+    background-color: var(--color-danger);
   }
 
   .m-message-close {
@@ -108,7 +108,7 @@ export default {
     top: 50%;
     color: #fff;
     width: 32px;
-    height: 1px; /*no*/
+    height: 1PX; /*no*/
     background-color: currentColor;
   }
 

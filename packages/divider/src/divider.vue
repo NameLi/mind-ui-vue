@@ -35,7 +35,7 @@ export default {
   position: relative;
   align-items: center;
   justify-content: center;
-  color: $color-text-secondary;
+  color: var(--color-text-secondary);
 
   .m-divider__content {
     z-index: 1;
@@ -49,7 +49,7 @@ export default {
       position: absolute;
       top: 50%;
       width: 120px;
-      height: 1px; /*no*/
+      height: 1PX; /*no*/
       transform: scaleY(0.5);
       background-color: currentColor;
     }

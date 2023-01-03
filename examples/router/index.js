@@ -126,10 +126,6 @@ const constantRoutes = [
         component: require("../pages/swipeout.vue").default,
       },
       {
-        path: "/swiper",
-        component: require("../pages/swiper.vue").default,
-      },
-      {
         path: "/indexs",
         component: require("../pages/index.vue").default,
       },

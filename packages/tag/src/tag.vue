@@ -63,7 +63,7 @@ export default {
   line-height: 38px;
   padding: 0 12px;
   border-radius: 4px;
-  background: #fff;
+  background-color: #fff;
   font-size: 24px;
   vertical-align: middle;
   letter-spacing: 2px;
@@ -101,32 +101,32 @@ export default {
   /* 类型 type */
   &.m-tag--primary {
     color: #fff;
-    background: $color-primary;
+    background-color: var(--color-primary);
   }
 
   &.m-tag--success {
     color: #fff;
-    background: $color-success;
+    background-color: var(--color-success);
   }
 
   &.m-tag--info {
     color: #fff;
-    background: $color-info;
+    background-color: var(--color-info);
   }
 
   &.m-tag--warning {
     color: #fff;
-    background: $color-warning;
+    background-color: var(--color-warning);
   }
 
   &.m-tag--danger {
     color: #fff;
-    background: $color-danger;
+    background-color: var(--color-danger);
   }
 
   /* plain */
   &.is-plain {
-    background: #fff;
+    background-color: #fff;
   }
 
   &.is-plain::after {
@@ -137,7 +137,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid; /*no*/
+    border: 1PX solid; /*no*/
     transform: scale(0.5);
     transform-origin: 0 0;
     box-sizing: border-box;
@@ -152,23 +152,23 @@ export default {
   }
 
   &.m-tag--primary.is-plain {
-    color: $color-primary;
+    color: var(--color-primary);
   }
 
   &.m-tag--success.is-plain {
-    color: $color-success;
+    color: var(--color-success);
   }
 
   &.m-tag--warning.is-plain {
-    color: $color-warning;
+    color: var(--color-warning);
   }
 
   &.m-tag--info.is-plain {
-    color: $color-info;
+    color: var(--color-info);
   }
 
   &.m-tag--danger.is-plain {
-    color: $color-danger;
+    color: var(--color-danger);
   }
 
   /* 自定义颜色 */

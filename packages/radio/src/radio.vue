@@ -132,11 +132,11 @@ export default {
   .m-radio__icon {
     position: relative;
     display: inline-block;
-    width: 18px; /*no*/
-    height: 18px; /*no*/
-    color: $color-primary;
+    width: 18PX; /*no*/
+    height: 18PX; /*no*/
+    color: var(--color-primary);
     text-align: center;
-    border: 1px solid #e5e5e5; /*no*/
+    border: 1PX solid #e5e5e5; /*no*/
     border-radius: 100%;
     box-sizing: content-box;
     vertical-align: middle;
@@ -149,8 +149,8 @@ export default {
     display: block;
     content: " ";
     margin: auto;
-    width: 8px; /*no*/
-    height: 8px; /*no*/
+    width: 8PX; /*no*/
+    height: 8PX; /*no*/
     border-radius: 100%;
     background-color: currentColor;
     position: absolute;
@@ -185,7 +185,7 @@ export default {
   .m-radio__label {
     flex: 1;
     word-wrap: break-word;
-    color: $color-text-regular;
+    color: var(--color-text-regular);
     line-height: 36px;
   }
 

@@ -212,14 +212,14 @@ export default {
     position: relative;
     border-radius: inherit;
     transition: width 0.2s;
-    background-color: #1989fa;
+    background-color: var(--color-theme);
   }
 
   .m-slider__button {
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 2px var(--color-mask);
     background-color: #fff;
   }
 

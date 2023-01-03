@@ -105,39 +105,39 @@ export default {
   }
 
   .color-item.primary {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
 
   .color-item.success {
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
 
   .color-item.warning {
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
 
   .color-item.danger {
-    background-color: $color-danger;
+    background-color: var(--color-danger);
   }
 
   .color-item.text-primary {
-    background-color: $color-text-primary;
+    background-color: var(--color-text-primary);
   }
 
   .color-item.text-regular {
-    background-color: $color-text-regular;
+    background-color: var(--color-text-regular);
   }
 
   .color-item.text-secondary {
-    background-color: $color-text-secondary;
+    background-color: var(--color-text-secondary);
   }
 
   .color-item.border {
-    background-color: $color-border;
+    background-color: var(--color-border);
   }
 
   .color-item.mask {
-    background-color: $color-mask;
+    background-color: var(--color-mask);
   }
 }
 </style>

@@ -195,7 +195,7 @@ export default {
     transition-property: color, border-color, background-color;
     font-size: 30px;
     font-weight: bold;
-    border: 1px solid #e5e5e5; /*no*/
+    border: 1PX solid #e5e5e5; /*no*/
     border-radius: 4px;
     transition-duration: 0.25s;
   }
@@ -205,8 +205,8 @@ export default {
   }
 
   .m-checkbox__icon--checked {
-    background-color: $color-primary;
-    border-color: $color-primary;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
   }
 
   .m-checkbox__icon--disabled {
@@ -221,7 +221,7 @@ export default {
   .m-checkbox__label {
     flex: 1;
     word-wrap: break-word;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     &--left {

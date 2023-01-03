@@ -92,7 +92,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: $color-mask;
+    background-color: var(--color-mask);
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   }
 

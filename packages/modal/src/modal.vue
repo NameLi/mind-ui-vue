@@ -170,7 +170,7 @@ export default {
     bottom: 0;
     opacity: 1;
     visibility: visible;
-    background: $color-mask;
+    background-color: var(--color-mask);
     transition: opacity 0.2s ease-in-out;
   }
 
@@ -212,7 +212,7 @@ export default {
     padding: 12px 30px 24px;
     font-size: 36px;
     line-height: 1;
-    color: #1c2438;
+    color: var(--color-text-primary);
     text-align: center;
   }
 
@@ -220,7 +220,7 @@ export default {
     margin-bottom: 30px;
     padding: 20px 40px;
     font-size: 28px;
-    color: #80848f;
+    color: var(--color-text-regular);
     line-height: 1.5;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -244,7 +244,7 @@ export default {
     width: 100%;
     height: 1px;
     transform: scaleY(0.5);
-    background: #ddd;
+    background-color: #ddd;
   }
 
   .m-btn-cancel::after {
@@ -255,7 +255,7 @@ export default {
     width: 1px;
     height: 100%;
     transform: scaleX(0.5);
-    background: #ddd;
+    background-color: #ddd;
   }
 
   .modal-bounce-enter {

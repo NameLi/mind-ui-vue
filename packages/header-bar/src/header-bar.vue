@@ -133,7 +133,7 @@ export default {
 .m-header-bar {
   display: block;
   position: relative;
-  height: 56px; /*no*/
+  height: 56PX; /*no*/
 
   .m-header {
     z-index: 1999;
@@ -154,7 +154,7 @@ export default {
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 56px; /*no*/
+    height: 56PX; /*no*/
   }
 
   .m-header .m-header-back {
@@ -208,8 +208,8 @@ export default {
 
   .m-spinner__snake {
     display: inline-block;
-    width: 11px; /*no*/
-    height: 11px; /*no*/
+    width: 11PX; /*no*/
+    height: 11PX; /*no*/
     border-radius: 50%;
     border: 2px solid; /*no*/
     border-top-color: transparent;

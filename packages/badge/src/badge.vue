@@ -97,8 +97,8 @@ export default {
     line-height: 28px;
     border-radius: 40px;
     min-width: 20px;
-    background-color: $color-danger;
-    border: 1px solid transparent; /*no*/
+    background-color: var(--color-danger);
+    border: 1PX solid transparent; /*no*/
     color: #fff;
     text-align: center;
     padding: 0 6px;
@@ -122,9 +122,9 @@ export default {
     height: 18px;
     width: 18px;
     border-radius: 50%;
-    background-color: $color-danger;
+    background-color: var(--color-danger);
     z-index: 1;
-    box-shadow: 0 0 0 1px #fff; /*no*/
+    box-shadow: 0 0 0 1PX #fff; /*no*/
   }
 }
 </style>

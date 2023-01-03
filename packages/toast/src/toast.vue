@@ -55,7 +55,7 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: $color-mask;
+    background-color: var(--color-mask);
     z-index: 2000;
   }
 
@@ -90,7 +90,7 @@ export default {
     text-align: center;
     border-radius: 4px;
     box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
   }
 
   .m-toast__icon {
@@ -111,10 +111,10 @@ export default {
     width: 54px;
     height: 54px;
     border-radius: 50%;
-    border: 2px solid #fff; /*no*/
+    border: 2PX solid #fff; /*no*/
     border-left-color: transparent;
     vertical-align: middle;
-    background: 0 0;
+    background-position: 0 0;
     animation: m-btn-spinner 0.8s linear infinite;
   }
 

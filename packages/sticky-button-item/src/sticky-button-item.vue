@@ -76,7 +76,7 @@ export default {
   left: 0;
   top: 0;
   color: #ffff;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   border-radius: 50%;
   position: absolute;
   z-index: 1;

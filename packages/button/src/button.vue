@@ -115,7 +115,7 @@ export default {
   border-radius: 6px;
   border: 0;
   box-sizing: border-box;
-  color: $color-text-primary;
+  color: var(--color-text-primary);
   overflow: visible;
   background-color: #fff;
   user-select: none;
@@ -148,13 +148,13 @@ export default {
   }
   &--default {
     background-color: transparent;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
   &--default:active {
     background-color: rgba(0, 0, 0, 0.07);
   }
   &--default.m-hairline--surround::after {
-    border-color: $color-border;
+    border-color: var(--color-border);
     pointer-events: none;
   }
 
@@ -170,7 +170,7 @@ export default {
   }
   &--primary {
     color: #fff;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
   }
   &.is-round.m-hairline--surround::after {
     border-radius: 200px;
@@ -178,48 +178,48 @@ export default {
 
   &--ghost {
     background-color: transparent;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
   }
 
   &--success {
     color: #fff;
-    background-color: $color-success;
+    background-color: var(--color-success);
   }
 
   &--warning {
     color: #fff;
-    background-color: $color-warning;
+    background-color: var(--color-warning);
   }
 
   &--danger {
     color: #fff;
-    background-color: $color-danger;
+    background-color: var(--color-danger);
   }
 
   &--info {
     color: #fff;
-    background-color: $color-info;
+    background-color: var(--color-info);
   }
 
   /* plain */
   &--primary.is-plain {
-    color: $color-primary;
+    color: var(--color-primary);
   }
 
   &--success.is-plain {
-    color: $color-success;
+    color: var(--color-success);
   }
 
   &--warning.is-plain {
-    color: $color-warning;
+    color: var(--color-warning);
   }
 
   &--danger.is-plain {
-    color: $color-danger;
+    color: var(--color-danger);
   }
 
   &--info.is-plain {
-    color: $color-info;
+    color: var(--color-info);
   }
   &[class*="m-button-"].is-plain {
     background-color: #fff;
@@ -252,7 +252,7 @@ export default {
     height: 24px;
     background-position: 0 0;
     border-radius: 50%;
-    border: 2px solid currentColor; /*no*/
+    border: 2PX solid currentColor; /*no*/
     border-left-color: transparent;
     animation: btn-spinner 0.8s linear;
     animation-iteration-count: infinite;

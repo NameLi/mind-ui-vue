@@ -45,7 +45,7 @@ export default {
     line-height: 60px;
     font-size: 28px;
     padding-left: 20px;
-    background: #eee;
+    background-color: var(--color-text-secondary);
     box-sizing: border-box;
   }
 

@@ -55,7 +55,7 @@ export default {
 .m-cell-group {
   position: relative;
   margin: 0;
-  background: #fff;
+  background-color: #fff;
   transition: margin 0.2s;
   &.m-cell-group--card {
     margin: 32px;
@@ -71,8 +71,8 @@ export default {
     padding: 0 32px;
     height: 100px;
     font-size: 32px;
-    color: #999;
-    background: #fcfcfc;
+    color: var(--color-text-secondary);
+    background-color: #fcfcfc;
   }
 
   .m-cell-group__title {

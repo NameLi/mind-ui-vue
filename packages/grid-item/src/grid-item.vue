@@ -132,10 +132,10 @@ export default {
       right: -50%;
       bottom: -50%;
       left: -50%;
-      border: 0 solid $color-border;
+      border: 0 solid var(--color-border);
       transform: scale(0.5);
       box-sizing: border-box;
-      border-width: 0 1px 1px 0; /*no*/
+      border-width: 0 1PX 1PX 0; /*no*/
     }
   }
 
@@ -168,7 +168,7 @@ export default {
   }
 
   .m-grid-item__text {
-    color: $color-text-regular;
+    color: var(--color-text-regular);
     font-size: 28px;
     overflow: hidden;
     white-space: nowrap;

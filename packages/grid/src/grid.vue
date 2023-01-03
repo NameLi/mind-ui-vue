@@ -48,10 +48,10 @@ export default {
       right: -50%;
       bottom: -50%;
       left: -50%;
-      border: 0 solid $color-border;
+      border: 0 solid var(--color-border);
       transform: scale(0.5);
       box-sizing: border-box;
-      border-width: 1px 0 0 1px; /*no*/
+      border-width: 1px 0 0 1PX; /*no*/
     }
   }
 }

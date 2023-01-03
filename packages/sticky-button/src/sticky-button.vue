@@ -163,7 +163,7 @@ export default {
     text-align: center;
     z-index: 2;
     font-size: 60px;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     transition: transform 0.3s ease-in-out;
     display: flex;
     align-items: center;

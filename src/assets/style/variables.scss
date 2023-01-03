@@ -1,0 +1,15 @@
+/* 颜色定义 */
+:root  {
+	--color-primary: #409eff; /* primary */
+	--color-success: #67c23a; /* Success */
+	--color-warning: #e6a23c; /* Warning */
+	--color-danger: #f56c6c; /* Danger */
+	--color-info: #909399; /* Info */
+
+	--color-text-primary: #303133; /* 主要文字 标题 */
+	--color-text-regular: #606266; /* 常规文字 正文 */
+	--color-text-secondary: #909399; /* 次要文字 辅助 */
+
+	--color-border: #dcdee2; /* 边框 */
+	--color-mask: rgba(0, 0, 0, 0.55); /* 遮罩颜色 */
+}

@@ -42,7 +42,7 @@ export default {
     min-height: 80px;
     display: flex;
     justify-content: center;
-    color: #aaa;
+    color: var(--color-text-secondary);
     font-size: 28px;
     &::after {
       display: block;
@@ -51,7 +51,7 @@ export default {
       width: 1PX; /*no*/
       bottom: 10px;
       content: " ";
-      background: #ccc;
+      background-color: var(--color-border);
     }
   }
 

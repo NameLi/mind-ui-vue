@@ -115,7 +115,7 @@ export default {
     display: flex;
     align-items: center;
     flex: 1;
-    color: $color-text-primary;
+    color: var(--color-text-primary);
     vertical-align: middle;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -124,7 +124,7 @@ export default {
   .m-cell__desc {
     margin-left: 20px;
     max-width: 62%;
-    color: $color-text-secondary;
+    color: var(--color-text-secondary);
     font-size: 28px;
     text-align: justify;
     line-height: 1.6;
@@ -148,7 +148,7 @@ export default {
     right: 32px;
     bottom: 0;
     left: 32px;
-    border-bottom: 1PX solid $color-border; /*no*/
+    border-bottom: 1PX solid var(--color-border); /*no*/
     transform: scaleY(0.5);
   }
 }

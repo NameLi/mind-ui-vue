@@ -27,7 +27,7 @@ export default {
 .demo-header__bar {
   display: block;
   position: relative;
-  height: 56px;
+  height: 56PX; /*no*/
 }
 
 .demo-header {
@@ -37,7 +37,7 @@ export default {
   width: 100%;
   left: 0;
   top: 0;
-  height: 56px; /*no*/
+  height: 56PX; /*no*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,9 +47,9 @@ export default {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 1px; /*no*/
+    bottom: 1PX; /*no*/
     width: 100%;
-    height: 1px; /*no*/
+    height: 1PX; /*no*/
     background-color: transparent;
     box-shadow: 0px 4px 8px rgba(174, 174, 174, 0.36);
   }
@@ -69,11 +69,9 @@ export default {
 .demo-header .demo-header__back .demo-header__back__icon {
   width: 32px;
   height: 32px;
-  background-color: $color-text-primary;
-  -webkit-mask: url("./back.svg")
-    no-repeat 50% 50%;
-  mask: url("./back.svg")
-    no-repeat 50% 50%;
+  background-color: var(--color-text-primary);
+  -webkit-mask: url("./back.svg") no-repeat 50% 50%;
+  mask: url("./back.svg") no-repeat 50% 50%;
   -webkit-mask-size: cover;
   mask-size: cover;
 }
