@@ -3,13 +3,13 @@
 > Mobile UI for **Vue 2.6+**
 
 ### 温馨提示
-该组件库是个人为 [慕影网](https://github.com/NameLi/muying-h5) 项目所开发的配套组件库，未经过严格测试，不建议在生产环境中使用。  
+该组件库是个人为 [慕影网](https://github.com/NameLi/muying-h5) 项目所开发的配套组件库，未经过严格测试，不建议在生产环境使用。
 
 ### 在线预览
-组件预览地址：[https://mind-ui-vue.ixook.com](https://mind-ui-vue.ixook.com)
+预览地址：[https://mind-ui-vue.ixook.com](https://mind-ui-vue.ixook.com)
 
 ### 使用文档
-组件使用文档：[https://mind-ui-vue.ixook.com/docs](https://mind-ui-vue.ixook.com/docs)
+使用文档：[https://mind-ui-vue.ixook.com/docs](https://mind-ui-vue.ixook.com/docs)
 
 ### 安装
 ```shell

@@ -32,16 +32,5 @@ module.exports = {
       .tap((options) => {
         return options;
       });
-  },
-  // css: {
-  //   extract: true,
-  //   sourceMap: false,
-  //   requireModuleExtension: true,
-  //   loaderOptions: {
-  //     sass: {
-  //       prependData: `@import "@/assets/style/variables.scss";`,
-  //       sassOptions: { outputStyle: 'expanded' }
-  //     },
-  //   },
-  // },
+  }
 };
